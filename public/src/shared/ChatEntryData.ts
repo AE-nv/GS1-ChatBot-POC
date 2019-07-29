@@ -22,7 +22,11 @@ export default class ChatEntryDataFactory {
                 message: textMessage,
             },
             author: Author.User,
+<<<<<<< HEAD
             entryId: this.getId(textMessage),
+=======
+            entryId: this.idCount++,
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
         };
     }
 
@@ -38,13 +42,20 @@ export default class ChatEntryDataFactory {
                 message: textMessage,
             },
             author: Author.User,
+<<<<<<< HEAD
             entryId: this.getId(textMessage),
+=======
+            entryId: this.idCount++,
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
         };
     }
 
     public getMultipleChoiceChatEntry(
         author: Author,
+<<<<<<< HEAD
         displayText: string,
+=======
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
         possibleAnswers: string[],
     ) {
         return {
@@ -52,6 +63,7 @@ export default class ChatEntryDataFactory {
                 import('../components/chat-entries/MultipleChoiceChatEntry.vue'),
             componentProperties: {
                 isUserSide: !(author === Author.Bot),
+<<<<<<< HEAD
                 message: displayText,
                 possibleAnswers,
             },
@@ -63,6 +75,14 @@ export default class ChatEntryDataFactory {
     private getId(extra: string): number {
         return Math.random() + extra.length;
     }
+=======
+                possibleAnswers,
+            },
+            author: Author.User,
+            entryId: this.idCount++,
+        };
+    }
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 }
 
 export const chatEntryDataFactory = new ChatEntryDataFactory();

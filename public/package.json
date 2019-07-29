@@ -18,8 +18,13 @@
         "bootstrap-vue": "^2.0.0-rc.27",
         "botbuilder-cognitiveservices": "^1.2.0",
         "botframework-directlinejs": "^0.11.4",
+<<<<<<< HEAD
         "core-js": "^2.6.5",
         "directline-api-v3": "^1.0.11",
+=======
+        "botframework-webchat": "^4.5.0",
+        "core-js": "^2.6.5",
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
         "vue": "^2.6.10",
         "vue-beautiful-chat": "^2.2.2",
         "vue-class-component": "^7.0.2",

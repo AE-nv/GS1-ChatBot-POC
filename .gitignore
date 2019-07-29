@@ -21,9 +21,18 @@ shared/**/*.js
 shared/**/*.js.map
 
 ## Compiled JavaScript files
+<<<<<<< HEAD
 
 server/node_modules/
 server/.runtimeconfig.json
+=======
+functions/**/*.js
+functions/**/*.js.map
+functions/lib
+
+functions/node_modules/
+functions/.runtimeconfig.json
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 
 uploads
 

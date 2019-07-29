@@ -3,6 +3,7 @@
     class="chat-entry d-flex align-items-end"
     :class="{'flex-row-reverse' : isUserSide}"
   >
+<<<<<<< HEAD
     <div
       v-if="!isUserSide"
       class="chat-entry__avatar d-flex"
@@ -15,6 +16,16 @@
     <div class="chat-entry__spacer"></div>
     <div
       class="chat-entry__text-bubble py-2 px-3 mb-2"
+=======
+    <div class="chat-entry__avatar d-flex">
+      <img
+        class="chat-entry__avatar__bot-image"
+        src="../assets/GS1_Corporate_logo.png"
+      > </div>
+    <div class="chat-entry__spacer"></div>
+    <div
+      class="chat-entry__text-bubble p-2 mb-2"
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
       :class="{
       'chat-entry__text-bubble--user': isUserSide,
       'chat-entry__text-bubble--bot': !isUserSide
@@ -47,8 +58,13 @@ export default class ChatEntry extends Vue {
     // width: 2rem;
     // max-height: 2rem;
     // max-width: 2rem;
+<<<<<<< HEAD
     // min-width: 2rem;
     // min-height: 2rem;
+=======
+    min-width: 2rem;
+    min-height: 2rem;
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 }
 
 .chat-entry__spacer {
@@ -56,8 +72,13 @@ export default class ChatEntry extends Vue {
 }
 
 .chat-entry__avatar__bot-image {
+<<<<<<< HEAD
     max-width: 3.5rem;
     max-height: 3.5rem;
+=======
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 }
 
 .chat-entry__text-bubble {

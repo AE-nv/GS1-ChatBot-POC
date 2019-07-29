@@ -1,7 +1,11 @@
 <template>
   <ChatEntry v-bind="$props">
     <template>
+<<<<<<< HEAD
       <div v-html="parsedMessage"></div>
+=======
+      {{message}}
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
     </template>
   </ChatEntry>
 </template>
@@ -14,6 +18,7 @@ import ChatEntry from '../ChatEntry.vue';
 @Component({ components: { ChatEntry } })
 export default class TextChatEntry extends ChatEntry {
     @Prop() public message!: string;
+<<<<<<< HEAD
     //TODO: extract method
     public get parsedMessage(): string {
         const link: RegExpExecArray | null = /\[(.*)\]\((.*)\)/gm.exec(
@@ -29,6 +34,8 @@ export default class TextChatEntry extends ChatEntry {
             return this.message;
         }
     }
+=======
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 }
 </script>
 

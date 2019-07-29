@@ -1,6 +1,7 @@
 <template>
   <ChatEntry v-bind="$props">
     <template>
+<<<<<<< HEAD
       <div class="d-flex flex-column">
         <div
           v-html="parsedMessage"
@@ -21,6 +22,18 @@
     </template>
   </ChatEntry>
 </template>
+=======
+      <b-button
+        class="d-flex flex-column"
+        v-for="(answer,index) in possibleAnswers"
+        :key="index"
+        @click="emitAnswer(answer)"
+      >{{answer}}</b-button>
+    </template>
+  </ChatEntry>
+</template>
+
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 <script lang="ts">
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import ChatEntry from '../ChatEntry.vue';
@@ -29,6 +42,7 @@ import { ChatEntryEvent } from './ChatEntryEvents';
 @Component({ components: { ChatEntry } })
 export default class MultipleChoiceChatEntry extends ChatEntry {
     @Prop() public possibleAnswers!: string[];
+<<<<<<< HEAD
     @Prop() public message!: string;
 
     public selectedAnswer: string = '';
@@ -55,11 +69,18 @@ export default class MultipleChoiceChatEntry extends ChatEntry {
         this.answerGiven = true;
         this.selectedAnswer = answer;
         return { event: ChatEntryEvent.MultipleChoiceClicked, value: answer };
+=======
+
+    @Emit('chatEntryEvent')
+    public emitAnswer(answer: string): ChatEntryEvent {
+        return ChatEntryEvent.MultipleChoiceClicked;
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
     }
 }
 </script>
 
 <style lang="scss">
+<<<<<<< HEAD
 .chat-bubble__possible-answer {
     background-color: $bot-bubble-background-color;
     border-radius: $radius !important;
@@ -77,4 +98,6 @@ export default class MultipleChoiceChatEntry extends ChatEntry {
         margin-right: 0.8rem;
     }
 }
+=======
+>>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 </style>
