@@ -1,0 +1,53 @@
+{
+    "name": "gs1bot",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.19",
+        "@fortawesome/pro-light-svg-icons": "^5.9.0",
+        "@fortawesome/pro-regular-svg-icons": "^5.9.0",
+        "@fortawesome/pro-solid-svg-icons": "^5.9.0",
+        "@fortawesome/vue-fontawesome": "^0.1.6",
+        "axios": "^0.19.0",
+        "bootstrap": "^4.3.1",
+        "bootstrap-vue": "^2.0.0-rc.27",
+        "botbuilder-cognitiveservices": "^1.2.0",
+        "botframework-directlinejs": "^0.11.4",
+        "botframework-webchat": "^4.5.0",
+        "core-js": "^2.6.5",
+        "vue": "^2.6.10",
+        "vue-beautiful-chat": "^2.2.2",
+        "vue-class-component": "^7.0.2",
+        "vue-property-decorator": "^8.1.0",
+        "vue-router": "^3.0.3",
+        "vue-spinner": "^1.0.3",
+        "vuera": "^0.2.5",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@fortawesome/fontawesome-pro": "^5.9.0",
+        "@types/axios": "^0.14.0",
+        "@vue/cli-plugin-babel": "^3.9.0",
+        "@vue/cli-plugin-typescript": "^3.9.0",
+        "@vue/cli-service": "^3.9.0",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.1.0",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.4.3",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
+}

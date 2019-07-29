@@ -1,0 +1,29 @@
+.clickable {
+    cursor: pointer !important;
+}
+
+.fa-btn {
+    // background-color: transparent;
+    transition: color 200ms;
+    &:hover{
+        color: darken($accent-color,10%);
+    }
+    &--accent {
+        color: $accent-color;
+    }
+}
+
+.disabled{
+    pointer-events: none;
+    background-color: $disabled-color;
+}
+
+.v-spinner{
+    > div {
+        background-color: $main-color !important;
+    }
+}
+
+.d-flex-uninmportant {
+    display: flex;
+}
