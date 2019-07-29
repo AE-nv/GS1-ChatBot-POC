@@ -7,13 +7,15 @@ import * as path from 'path';
 import * as restify from 'restify';
 
 import { DialogAndWelcomeBot } from './bots/dialogAndWelcomeBot';
-import { BookingDialog } from './dialogs/bookingDialog';
 import { FlightBookingRecognizer } from './dialogs/flightBookingRecognizer';
+import { GS1QNAContextRecognizer } from './dialogs/GS1QNAContextRecognizer';
 import { MainDialog } from './dialogs/mainDialog';
+import { QNADialog } from './dialogs/qnaDialog';
 
 // Import required bot services. // See https://aka.ms/bot-services to learn more about the different parts of a bot.
 // The bot and its main dialog.
 const BOOKING_DIALOG = 'faqDialog';
+const QNA_DIALOG = 'qnaDialog';
 
 // The helper-class recognizer that calls LUIS
 // Note: Ensure you have a .env file and include LuisAppId, LuisAPIKey and LuisAPIHostName.
@@ -51,16 +53,18 @@ const memoryStorage = new MemoryStorage();
 conversationState = new ConversationState(memoryStorage);
 userState = new UserState(memoryStorage);
 
-// If configured, pass in the FlightBookingRecognizer. (Defining it externally allows it to be mocked for tests)
-let luisRecognizer;
-const { LuisAppId, LuisAPIKey, LuisAPIHostName } = process.env;
-const luisConfig: LuisApplication = { applicationId: LuisAppId, endpointKey: LuisAPIKey, endpoint: `https://${LuisAPIHostName}` };
 
-luisRecognizer = new FlightBookingRecognizer(luisConfig);
+const { MainLuisAppId, MainLuisAPIKey, MainLuisAPIHostName, QNALuisAppId, QNALuisAPIKey, QNALuisAPIHostName,  } = process.env;
+console.log(MainLuisAppId, MainLuisAPIKey, MainLuisAPIHostName);
+const mainLuisConfig: LuisApplication = { applicationId: MainLuisAppId, endpointKey: MainLuisAPIKey, endpoint: `https://${MainLuisAPIHostName}` };
+const qnaLuisConfig: LuisApplication = { applicationId: QNALuisAppId, endpointKey: QNALuisAPIKey, endpoint: `https://${QNALuisAPIHostName}` };
+
+const qnaFlowRecognizer = new GS1QNAContextRecognizer(qnaLuisConfig);
+const mainLuisRecognizer = new FlightBookingRecognizer(mainLuisConfig);
 
 // Create the main dialog.
-const faqDialog = new BookingDialog(BOOKING_DIALOG);
-const dialog = new MainDialog(luisRecognizer, faqDialog);
+const qnaDialog = new QNADialog(QNA_DIALOG,qnaFlowRecognizer);
+const dialog = new MainDialog(mainLuisRecognizer, qnaFlowRecognizer, qnaDialog);
 const bot = new DialogAndWelcomeBot(conversationState, userState, dialog);
 
 // Create HTTP server

@@ -18,7 +18,7 @@ export class GS1QNAContextRecognizer {
      * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
      * @param {TurnContext} context
      */
-    async executeLuisQuery(context: TurnContext) {
+    public async executeLuisQuery(context: TurnContext) {
         return await this.recognizer.recognize(context);
     }
 }
