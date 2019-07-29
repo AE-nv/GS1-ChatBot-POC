@@ -43,15 +43,15 @@
         ref="chatContent"
         class="bot__content px-3 flex-grow-1 py-2"
       >
-       
-          <component
-            v-for="entry in chatEntries"
-            :is="entry.chatEntryComponent"
-            :key="entry.entryId"
-            class="mb-4"
-            v-bind="entry.componentProperties"
-            @chatEntryEvent="handleChatEntryEvent"
-          />
+
+        <component
+          v-for="entry in chatEntries"
+          :is="entry.chatEntryComponent"
+          :key="entry.entryId"
+          class="mb-4"
+          v-bind="entry.componentProperties"
+          @chatEntryEvent="handleChatEntryEvent"
+        />
 
         <SyncLoader
           class="my-4"
@@ -80,7 +80,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { DirectLine } from 'botframework-directlinejs';
+import { DirectLine, IActivity, Message } from 'botframework-directlinejs';
 import ChatEntry from './ChatEntry.vue';
 import { Author } from '../shared/contract';
 import SyncLoader from 'vue-spinner/src/SyncLoader.vue';
@@ -114,6 +114,10 @@ export default class ChatWindow extends Vue {
     public transitionDelay: number = 300; // milliseconds;
 
     private qnaMakerClient: QNAMAkerClient;
+    private directLine: DirectLine;
+    private readonly userName: string = 'pieter';
+    private readonly userId: string = 'pieter';
+    private readonly botId: string = 'luis-gs1-nlp-bot';
 
     constructor() {
         super();
@@ -122,23 +126,33 @@ export default class ChatWindow extends Vue {
             'cbde9f34-58cf-46d5-af76-975d99df84eb',
             'https://gs1-pocbot.azurewebsites.net',
         );
+        this.directLine = new DirectLine({
+            secret: 'XPq30oNItPs.lj6jLL1enuKHfV2_3ex_RGs7SFBhPhhSO6-2mJ1muXk',
+        });
     }
 
     public mounted() {
-        this.init();
+        this.directLine.activity$
+            .filter(
+                activity =>
+                    activity.type === 'message' &&
+                    activity.from.id === this.botId,
+            )
+            .subscribe(message => {
+                this.parseMessage(message);
+            });
+        this.directLine
+            .postActivity({
+                from: { id: 'pieterId', name: 'pieter' },
+                type: 'event',
+                name: 'startConversation',
+                value: 'startConversation',
+            })
+            .subscribe();
     }
 
     public handleChatEntryEvent(event: ChatEntryEvent) {
         console.log(event);
-    }
-
-    public init() {
-        this.addMessage(
-            chatEntryDataFactory.getTextChatEntryData(
-                Author.Bot,
-                'Hallo beste gebruiker, Wat is je vraag?',
-            ),
-        );
     }
 
     public async sendMessage() {
@@ -151,7 +165,14 @@ export default class ChatWindow extends Vue {
                 this.currentInput,
             ),
         );
-        await this.answer(this.currentInput);
+        this.botIsThinking = true;
+        this.directLine
+            .postActivity({
+                from: { id: 'pieterId', name: 'pieter' }, // required (from.name is optional)
+                type: 'message',
+                text: this.currentInput,
+            })
+            .subscribe(id => console.log(id), error => console.log(error));
         this.currentInput = '';
     }
 
@@ -179,6 +200,21 @@ export default class ChatWindow extends Vue {
         this.scrollDown();
     }
 
+    private async parseMessage(message: IActivity) {
+        console.log(message);
+        const msg = message as Message;
+        if (msg && msg.text) {
+            await this.addMessage(
+                chatEntryDataFactory.getTextChatEntryData(
+                    Author.Bot,
+                    msg.text || '',
+                ),
+            );
+        }
+        this.botIsThinking = false;
+        this.scrollDown();
+    }
+
     private async addMessage(chatMessage: ChatEntryData, timeOut?: number) {
         if (timeOut) {
             await new Promise(resolve => setTimeout(resolve, timeOut));
@@ -187,37 +223,37 @@ export default class ChatWindow extends Vue {
         this.scrollDown();
     }
 
-    private async answer(question: string) {
-        await this.addMessage(
-            chatEntryDataFactory.getTextChatEntryData(
-                Author.Bot,
-                'Ik zoek het even voor je op',
-            ),
-        );
-        this.botIsThinking = true;
-        const qnaResponse:
-            | QNAMakerResponse
-            | undefined = await this.qnaMakerClient.getAnswerForQuestion(
-            question,
-        );
+    // private async answer(question: string) {
+    //     await this.addMessage(
+    //         chatEntryDataFactory.getTextChatEntryData(
+    //             Author.Bot,
+    //             'Ik zoek het even voor je op',
+    //         ),
+    //     );
 
-        this.botIsThinking = false;
-        await this.addMessage(
-            chatEntryDataFactory.getTextChatEntryData(
-                Author.Bot,
-                (qnaResponse && qnaResponse.answers[0].answer) || '',
-            ),
-            1000,
-        );
-        await this.addMessage(
-            chatEntryDataFactory.getYesNoButtonChatEntry(
-                Author.Bot,
-                'Was dit een antwoord op jouw vraag?',
-            ),
-            1000,
-        );
-        this.scrollDown();
-    }
+    //     const qnaResponse:
+    //         | QNAMakerResponse
+    //         | undefined = await this.qnaMakerClient.getAnswerForQuestion(
+    //         question,
+    //     );
+
+    //     this.botIsThinking = false;
+    //     await this.addMessage(
+    //         chatEntryDataFactory.getTextChatEntryData(
+    //             Author.Bot,
+    //             (qnaResponse && qnaResponse.answers[0].answer) || '',
+    //         ),
+    //         1000,
+    //     );
+    //     await this.addMessage(
+    //         chatEntryDataFactory.getYesNoButtonChatEntry(
+    //             Author.Bot,
+    //             'Was dit een antwoord op jouw vraag?',
+    //         ),
+    //         1000,
+    //     );
+    //     this.scrollDown();
+    // }
 
     private scrollDown(): void {
         const chatContent = this.$refs.chatContent as HTMLDivElement;
