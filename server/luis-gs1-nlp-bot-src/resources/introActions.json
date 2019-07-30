@@ -1,0 +1,14 @@
+{
+    "actions": [
+    {
+        "type": "Action.MessageBack",
+        "title": "Een barcode aanmaken",
+        "text": "Een barcode aanmaken"
+    },
+    {
+        "type": "Action.MessageBack",
+        "title": "Stel een vraag",
+        "text": "Stel een vraag"
+    }
+]
+}

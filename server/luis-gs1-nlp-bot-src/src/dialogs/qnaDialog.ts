@@ -1,17 +1,17 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-import { LuisRecognizer } from 'botbuilder-ai';
-import { ConfirmPrompt, TextPrompt, WaterfallDialog } from 'botbuilder-dialogs';
+import { CardFactory, MessageFactory } from 'botbuilder';
+import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
 
 import QNAMAkerClient from '../integrations/qnamaker/QNAMakerClient';
 import { QNAMakerResponse } from '../integrations/qnamaker/QNAMakerContract';
 import { CancelAndHelpDialog } from './cancelAndHelpDialog';
 import { GS1QNAContextRecognizer } from './GS1QNAContextRecognizer';
+import strings from './strings';
 
-
-const CONFIRM_PROMPT = 'confirmPrompt';
 const TEXT_PROMPT = 'textPrompt';
 const WATERFALL_DIALOG = 'waterfallDialog';
+const CONFIRM_PROMPT = 'confirmPrompt';
 
 export class QNADialog extends CancelAndHelpDialog {
     private qnaMakerClient: QNAMAkerClient;
@@ -19,9 +19,10 @@ export class QNADialog extends CancelAndHelpDialog {
         super(id || 'qnaDialog');
 
         this.addDialog(new TextPrompt(TEXT_PROMPT))
-            .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
             .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
+                this.poseQuestionStep.bind(this),
                 this.analyzeInputStep.bind(this),
+                this.wasThisUsefulStep.bind(this),
             ]));
 
         this.initialDialogId = WATERFALL_DIALOG;
@@ -32,14 +33,32 @@ export class QNADialog extends CancelAndHelpDialog {
         );
     }
 
-    public async analyzeInputStep(stepContext){
-        const luisResult = await this.qnaLuisRecognizer.executeLuisQuery(stepContext.context);
-        console.log(stepContext.context._activity.text)
-        console.log(LuisRecognizer.topIntent(luisResult))
+    public async poseQuestionStep(stepContext: WaterfallStepContext){
+        return await stepContext.prompt(TEXT_PROMPT, { prompt: strings.faq.pose_question })
+    }
+
+    public async analyzeInputStep(stepContext: WaterfallStepContext){
+        // const luisResult = await this.qnaLuisRecognizer.executeLuisQuery(stepContext.context);
+        // console.log(LuisRecognizer.topIntent(luisResult))
         const qnaResponse:
              | QNAMakerResponse
              | undefined = await this.qnaMakerClient.getAnswerForQuestion(
-             stepContext.context._activity.text,)
-        return await stepContext.prompt(TEXT_PROMPT, {prompt: `Ik denk dat je vraag binnen categorie: ${LuisRecognizer.topIntent(luisResult)} ligt met als antwoord: ${qnaResponse.answers[0].answer}`})
+             stepContext.context.activity.text);
+        await stepContext.context.sendActivity(qnaResponse.answers[0].answer);
+        const introActions = CardFactory.actions([strings.general.yes, strings.general.no]);
+        return await stepContext.prompt(TEXT_PROMPT, MessageFactory
+            .suggestedActions(introActions, strings.faq.was_this_useful));
     }
+
+    public async wasThisUsefulStep(stepContext:WaterfallStepContext){
+        if ((stepContext.result as string).toLowerCase() === strings.general.yes.toLowerCase()){
+            await stepContext.prompt(TEXT_PROMPT, { prompt: strings.faq.thanks_for_feedback });
+            return await stepContext.endDialog(); 
+        }else{
+            await stepContext.context.sendActivity(strings.faq.pose_differently);
+            await stepContext.endDialog();
+            return await stepContext.beginDialog(this.id);
+        }
+    }
+
 }
