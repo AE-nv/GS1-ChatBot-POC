@@ -13,8 +13,6 @@ import {
 import { GS1QNAContextRecognizer } from './GS1QNAContextRecognizer';
 import strings from './strings';
 
-const introOptions = require('../../resources/introActions.json');
-
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const TEXT_PROMPT = 'TextPrompt';
 const QNA_DIALOG = 'qnaDialog';

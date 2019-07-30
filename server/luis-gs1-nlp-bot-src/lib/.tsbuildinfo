@@ -1042,7 +1042,7 @@
         "signature": "4aa02d3beef40e631439c76d0beb1402354b3fe8245e51405ba5e2b85b1c1763"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/maindialog.ts": {
-        "version": "807c3bd9ec00f52cd5156ac987d5bb4167d35c0ea23eddc2b7e60b5e2bb45619",
+        "version": "3d5bc5fd1c0bd89897f8893a5abf6744c8947b51ce8a0aebdc2d4d305d23db87",
         "signature": "b5eb68afd716778dfa98a452d1eb773ed49f6e5187f22d82b2e641d2005246f7"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/bots/dialogbot.ts": {
@@ -1078,7 +1078,7 @@
         "signature": "3f03c7107249885de37558f0332a8ca9ed2858e54b468a6e22fa8de04c48eab4"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/index.ts": {
-        "version": "a776fe2466c892e1f076e61fb716ca9dfa1ea88849eb6d16d10339579e60a389",
+        "version": "c9633b9db92f1287f4b8b83022b37b092e9ccc185faeafb35e622c34c85c06d9",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/typings.d.ts": {
@@ -4799,7 +4799,7 @@
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/waterfalldialog.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gs1qnacontextrecognizer.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/maindialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/bots/dialogbot.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/bots/dialogandwelcomebot.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/flightbookingrecognizer.ts",
@@ -4813,7 +4813,7 @@
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/bookingdetails.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/dateresolverdialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/bookingdialog.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts"
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/maindialog.ts"
     ]
   },
   "version": "3.5.1"

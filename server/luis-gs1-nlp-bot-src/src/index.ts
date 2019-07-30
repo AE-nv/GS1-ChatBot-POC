@@ -55,7 +55,6 @@ userState = new UserState(memoryStorage);
 
 
 const { MainLuisAppId, MainLuisAPIKey, MainLuisAPIHostName, QNALuisAppId, QNALuisAPIKey, QNALuisAPIHostName,  } = process.env;
-console.log(MainLuisAppId, MainLuisAPIKey, MainLuisAPIHostName);
 const mainLuisConfig: LuisApplication = { applicationId: MainLuisAppId, endpointKey: MainLuisAPIKey, endpoint: `https://${MainLuisAPIHostName}` };
 const qnaLuisConfig: LuisApplication = { applicationId: QNALuisAppId, endpointKey: QNALuisAPIKey, endpoint: `https://${QNALuisAPIHostName}` };
 
