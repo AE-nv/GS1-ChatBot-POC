@@ -1,11 +1,11 @@
 <template>
   <div
     class="bot__frame d-flex justify-content-center"
-    :class="{'bot__frame--inactive':!chatOpen, 'bot__frame--active':chatOpen}"
+    :class="{'bot__frame--inactive':!active, 'bot__frame--active':active}"
   >
     <!-- Inactive -->
     <div
-      v-show="!chatOpen && !chatTransitioning"
+      v-show="!active && !chatTransitioning"
       class="d-flex-uninmportant justify-content-center"
       @click="openChat()"
     >
@@ -16,7 +16,7 @@
     </div>
     <!-- Active -->
     <div
-      v-show="chatOpen && !chatTransitioning"
+      v-show="active && !chatTransitioning"
       class="d-flex-uninmportant flex-column w-100"
     >
       <div class="bot__header d-flex">
@@ -79,7 +79,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit, Watch } from 'vue-property-decorator';
 import { DirectLine, IActivity, Message } from 'botframework-directlinejs';
 import ChatEntry from './ChatEntry.vue';
 import { Author } from '../shared/contract';
@@ -103,13 +103,13 @@ import { QNAMakerResponse } from '../shared/integrations/qnamaker/QNAMakerContra
 })
 export default class ChatWindow extends Vue {
     @Prop({ default: 'GS1Bot' }) public chatWindowTitle!: string;
+    @Prop() public active!: boolean;
 
     public botIsThinking: boolean = false;
 
     public currentInput: string = '';
 
     public chatEntries: ChatEntryData[] = [];
-    public chatOpen: boolean = true;
     public chatTransitioning: boolean = false;
     public transitionDelay: number = 300; // milliseconds;
 
@@ -143,7 +143,7 @@ export default class ChatWindow extends Vue {
             });
         this.directLine
             .postActivity({
-                from: { id: 'pieterId', name: 'pieter' },
+                from: { id: this.userId, name: this.userName },
                 type: 'event',
                 name: 'startConversation',
                 value: 'startConversation',
@@ -151,8 +151,20 @@ export default class ChatWindow extends Vue {
             .subscribe();
     }
 
-    public handleChatEntryEvent(event: ChatEntryEvent) {
+    public handleChatEntryEvent(event: {
+        event: ChatEntryEvent;
+        value: string;
+    }) {
         console.log(event);
+        if (event && event.event === ChatEntryEvent.MultipleChoiceClicked) {
+            this.directLine
+                .postActivity({
+                    from: { id: this.userId, name: this.userName }, // required (from.name is optional)
+                    type: 'message',
+                    text: event.value,
+                })
+                .subscribe();
+        }
     }
 
     public async sendMessage() {
@@ -168,7 +180,7 @@ export default class ChatWindow extends Vue {
         this.botIsThinking = true;
         this.directLine
             .postActivity({
-                from: { id: 'pieterId', name: 'pieter' }, // required (from.name is optional)
+                from: { id: this.userId, name: this.userName }, // required (from.name is optional)
                 type: 'message',
                 text: this.currentInput,
             })
@@ -176,21 +188,23 @@ export default class ChatWindow extends Vue {
         this.currentInput = '';
     }
 
+    @Emit('open')
     public openChat() {
-        this.chatTransitioning = true;
-        this.chatOpen = true;
-        setTimeout(() => {
-            this.chatTransitioning = false;
-        }, this.transitionDelay);
+        if (this.active) {
+            this.chatTransitioning = true;
+            setTimeout(() => {
+                this.chatTransitioning = false;
+            }, this.transitionDelay);
+        }
     }
 
     public isUser(author: Author): boolean {
         return author === Author.User;
     }
 
+    @Emit('close')
     public closeChat() {
         this.chatTransitioning = true;
-        this.chatOpen = false;
         setTimeout(() => {
             this.chatTransitioning = false;
         }, this.transitionDelay);
@@ -204,12 +218,28 @@ export default class ChatWindow extends Vue {
         console.log(message);
         const msg = message as Message;
         if (msg && msg.text) {
-            await this.addMessage(
-                chatEntryDataFactory.getTextChatEntryData(
-                    Author.Bot,
-                    msg.text || '',
-                ),
-            );
+            if (
+                msg.suggestedActions &&
+                msg.suggestedActions.actions &&
+                msg.suggestedActions.actions.length > 0
+            ) {
+                await this.addMessage(
+                    chatEntryDataFactory.getMultipleChoiceChatEntry(
+                        Author.Bot,
+                        msg.text,
+                        msg.suggestedActions.actions.map(
+                            action => action.value,
+                        ),
+                    ),
+                );
+            } else {
+                await this.addMessage(
+                    chatEntryDataFactory.getTextChatEntryData(
+                        Author.Bot,
+                        msg.text || '',
+                    ),
+                );
+            }
         }
         this.botIsThinking = false;
         this.scrollDown();
@@ -270,9 +300,17 @@ export default class ChatWindow extends Vue {
     transition: all 400ms;
     transition-timing-function: ease-out;
     &--active {
-        height: $height;
-        width: $width;
-        border-radius: $radius;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+
+        @include media-breakpoint-up(sm) {
+            height: $height;
+            width: $width;
+            border-radius: $radius;
+        }
     }
 
     &--inactive {

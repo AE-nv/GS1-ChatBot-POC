@@ -44,6 +44,7 @@ export default class ChatEntryDataFactory {
 
     public getMultipleChoiceChatEntry(
         author: Author,
+        displayText: string,
         possibleAnswers: string[],
     ) {
         return {
@@ -51,6 +52,7 @@ export default class ChatEntryDataFactory {
                 import('../components/chat-entries/MultipleChoiceChatEntry.vue'),
             componentProperties: {
                 isUserSide: !(author === Author.Bot),
+                message: displayText,
                 possibleAnswers,
             },
             author: Author.User,
