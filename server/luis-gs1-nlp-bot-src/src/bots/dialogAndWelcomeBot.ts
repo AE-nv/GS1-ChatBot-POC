@@ -1,9 +1,10 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 import { BotState } from 'botbuilder';
-import { Dialog, DialogState } from 'botbuilder-dialogs';
+import { Dialog } from 'botbuilder-dialogs';
 
 import { MainDialog } from '../dialogs/mainDialog';
+import { GS1DialogState } from '../dialogs/userDetails';
 import { DialogBot } from './dialogBot';
 
 export class DialogAndWelcomeBot extends DialogBot {
@@ -14,7 +15,15 @@ export class DialogAndWelcomeBot extends DialogBot {
             const membersAdded = context.activity.membersAdded;
             for (const member of membersAdded) {
                 if (member.id !== context.activity.recipient.id) {
-                    await (dialog as MainDialog).run(context, conversationState.createProperty<DialogState>('DialogState'));
+                    const initializedState: GS1DialogState = {
+                        dialogStack:[], 
+                        loggedIn:false,
+                        newUser:true,
+                        validPrefixes:[]
+                    };
+                    const dialogStateAccessor = conversationState.createProperty<GS1DialogState>('GS1DialogState');
+                    await dialogStateAccessor.set(context, initializedState);
+                    await (dialog as MainDialog).run(context, dialogStateAccessor);
                 }
             }
             // By calling next() you ensure that the next BotHandler is run.

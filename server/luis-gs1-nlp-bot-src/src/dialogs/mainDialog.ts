@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-import { CardFactory, InputHints, MessageFactory } from 'botbuilder';
+import { CardFactory, InputHints, MessageFactory, StatePropertyAccessor } from 'botbuilder';
 import {
     ComponentDialog,
     DialogSet,
@@ -10,18 +10,20 @@ import {
     WaterfallStepContext,
 } from 'botbuilder-dialogs';
 
-import { GS1QNAContextRecognizer } from './GS1QNAContextRecognizer';
+import { ConsoleLogTelemetryClient } from '../util/ConsoleBotTelemetryClient';
 import { NeedGtinDialog } from './gtinDialogs/needGtinDialog';
 import strings from './strings';
-import { UserDetails } from './userDetails';
+import { GS1DialogState } from './userDetails';
 
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const TEXT_PROMPT = 'TextPrompt';
 const QNA_DIALOG = 'qnaDialog';
 const NEED_GTIN_DIALOG='needGtinDialog';
 export class MainDialog extends ComponentDialog {
-    private userDetails: UserDetails
-    constructor(private mainLuisRecognizer,private qnaLuisRecognizer: GS1QNAContextRecognizer, qnaDialog) {
+    private stateAccessor: StatePropertyAccessor<GS1DialogState> = null;
+    private dialogState: GS1DialogState = null;
+    
+    constructor(private mainLuisRecognizer, qnaDialog) {
         super('MainDialog');
 
         if (!mainLuisRecognizer) throw new Error('[MainDialog]: Missing parameter \'luisRecognizer\' is required');
@@ -43,7 +45,6 @@ export class MainDialog extends ComponentDialog {
             ]));
 
         this.initialDialogId = MAIN_WATERFALL_DIALOG;
-        this.userDetails = {};
     }
 
     /**
@@ -52,18 +53,22 @@ export class MainDialog extends ComponentDialog {
      * @param {*} turnContext
      * @param {*} accessor
      */
-    public async run(turnContext, accessor) {
+    public async run(turnContext, accessor: StatePropertyAccessor<GS1DialogState>) {
         const dialogSet = new DialogSet(accessor);
+        this.stateAccessor = accessor;
         dialogSet.add(this);
 
         const dialogContext = await dialogSet.createContext(turnContext);
+        dialogContext.dialogs.telemetryClient = new ConsoleLogTelemetryClient();
         const results = await dialogContext.continueDialog();
         if (results.status === DialogTurnStatus.empty) {
             await dialogContext.beginDialog(this.id);
         }
     }
 
-    private async introStep(stepContext) {
+    private async introStep(stepContext: WaterfallStepContext<{isRestart:boolean, restartMsg:string}>) {
+        this.dialogState = await this.stateAccessor.get(stepContext.context);
+
         let messageText:string = '';
         if (!this.mainLuisRecognizer.isConfigured) {
             messageText = 'NOTE: LUIS is not configured. To enable all capabilities, add `LuisAppId`, `LuisAPIKey` and `LuisAPIHostName` to the .env file.';
@@ -83,7 +88,8 @@ export class MainDialog extends ComponentDialog {
     }
 
     private async newUserStep(stepContext: WaterfallStepContext){
-        if(this.userDetails.newUser){
+
+        if(!this.dialogState.newUser){
             return await stepContext.next();
         }
         const introActions = CardFactory.actions([strings.general.yes, strings.general.no]);
@@ -94,9 +100,10 @@ export class MainDialog extends ComponentDialog {
     private async setUserDetailsStep(stepContext:WaterfallStepContext){
         const answerOfUser = stepContext.context.activity.text;
         switch (answerOfUser) {
-            case strings.general.yes: this.userDetails.newUser = true; break;
-            case strings.general.no: this.userDetails.newUser = false; break;
+            case strings.general.yes: this.dialogState.newUser = true; break;
+            case strings.general.no: this.dialogState.newUser = false; break;
         }
+        this.stateAccessor.set(stepContext.context, this.dialogState);
         return await stepContext.next();
     }
 
@@ -112,8 +119,8 @@ export class MainDialog extends ComponentDialog {
     private async possibilityPickedStep(stepContext: WaterfallStepContext){
         const answerOfUser = stepContext.context.activity.text;
         switch (answerOfUser){
-            case strings.main.help.possibilities.general_question: console.log('step into qnaDialog'); return await stepContext.beginDialog(QNA_DIALOG);
-            case strings.main.help.possibilities.need_gtin: console.log('step into needGtinDialog'); return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.userDetails);
+            case strings.main.help.possibilities.general_question: return await stepContext.beginDialog(QNA_DIALOG);
+            case strings.main.help.possibilities.need_gtin: return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.stateAccessor);
             default: 
                 await stepContext.context.sendActivity('todo', 'todo', InputHints.IgnoringInput);
                 return await stepContext.next();

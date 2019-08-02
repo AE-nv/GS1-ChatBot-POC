@@ -4,7 +4,8 @@ export default Object.freeze({
         i_got_account: 'Ik heb een account',
         i_logged_in: 'Ik ben ingelogd',
         log_me_in: 'Mij inloggen',
-        not_logged_in_yet: 'Volge deze [link](www.logintoaccountlink.be) om in te loggen. Laat maar weten wanneer u ingelogd bent.',
+        need_to_be_logged_in: 'Om een GTIN aan te maken moet u zich eerst inloggen',
+        not_logged_in_yet: 'Volg deze [link](www.logintoaccountlink.be) om in te loggen. Laat maar weten wanneer u ingelogd bent.',
         now_logged_in: 'U bent nu ingelogd. Welkom terug!',
         saw_new_user_create_account: 'Om een GTIN aan te maken moet u zich eerst registreren. Wilt u nu een nieuw account aanmaken? Als u zich eerder vergist had en reeds een account hebt, selecteer dan "mij inloggen"',
         see_account_creation_page: 'Volg deze [link](www.createaccountlink.be) om een account aan te maken. Laat maar weten wanneer u klaar bent.'
@@ -21,7 +22,16 @@ export default Object.freeze({
     },
     gtin : {
         add_to_existing: 'Wenst u een GTIN toe te voegen een bestaande prefix?',
-        chose_to_add_to_prefix: (prefix: string) => `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](www.linknaarprefixen.be) om het proces te voltooien.` 
+        chose_to_add_to_prefix: (prefix: string) => `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](www.linknaarprefixen.be) om het proces te voltooien.` ,
+        for_cd: 'Heeft u een GTIN nodig voor CD/DVD/Vinyl in eigen beheer, of voor een ander product?',
+        is_revenue_correct: (revenue: string) => `Klopt volgend omzetcijfer: ${revenue}. Dit is belangrijk voor het bepalen van het tarief en zal later ook nog geverifieerd worden.`,
+        need_prefix: 'In dit geval heeft een barcode prefix nodig.',
+        possible_answers: {
+            cd_dvd_vinyl: 'CD DVD of Vinyl',
+            other:'Andere'
+        },
+        prefix_determines_gtins: 'De prefix bepaalt het maximaal aantal GTINs. Bekijk deze [link](gtins.be) voor meer info',
+
     },
     main: {
         help: {

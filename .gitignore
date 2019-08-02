@@ -21,12 +21,9 @@ shared/**/*.js
 shared/**/*.js.map
 
 ## Compiled JavaScript files
-functions/**/*.js
-functions/**/*.js.map
-functions/lib
 
-functions/node_modules/
-functions/.runtimeconfig.json
+server/node_modules/
+server/.runtimeconfig.json
 
 uploads
 

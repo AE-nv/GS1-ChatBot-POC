@@ -4,6 +4,7 @@ declare const _default: Readonly<{
         i_got_account: string;
         i_logged_in: string;
         log_me_in: string;
+        need_to_be_logged_in: string;
         not_logged_in_yet: string;
         now_logged_in: string;
         saw_new_user_create_account: string;
@@ -22,6 +23,14 @@ declare const _default: Readonly<{
     gtin: {
         add_to_existing: string;
         chose_to_add_to_prefix: (prefix: string) => string;
+        for_cd: string;
+        is_revenue_correct: (revenue: string) => string;
+        need_prefix: string;
+        possible_answers: {
+            cd_dvd_vinyl: string;
+            other: string;
+        };
+        prefix_determines_gtins: string;
     };
     main: {
         help: {
