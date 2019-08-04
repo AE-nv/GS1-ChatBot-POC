@@ -12,6 +12,7 @@ import {
 
 import { ConsoleLogTelemetryClient } from '../util/ConsoleBotTelemetryClient';
 import { NeedGtinDialog } from './gtinDialogs/needGtinDialog';
+import { QNADialog } from './qnaDialog';
 import strings from './strings';
 import { GS1DialogState } from './userDetails';
 
@@ -19,21 +20,20 @@ const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const TEXT_PROMPT = 'TextPrompt';
 const QNA_DIALOG = 'qnaDialog';
 const NEED_GTIN_DIALOG='needGtinDialog';
+
 export class MainDialog extends ComponentDialog {
     private stateAccessor: StatePropertyAccessor<GS1DialogState> = null;
     private dialogState: GS1DialogState = null;
     
-    constructor(private mainLuisRecognizer, qnaDialog) {
+    constructor(private mainLuisRecognizer) {
         super('MainDialog');
 
         if (!mainLuisRecognizer) throw new Error('[MainDialog]: Missing parameter \'luisRecognizer\' is required');
 
-        if (!qnaDialog) throw new Error('[MainDialog]: Missing parameter \'bookingDialog\' is required');
-
         // Define the main dialog and its related components.
         // This is a sample "book a flight" dialog.
         this.addDialog(new TextPrompt(TEXT_PROMPT))
-            .addDialog(qnaDialog)
+            .addDialog(new QNADialog(QNA_DIALOG))
             .addDialog(new NeedGtinDialog(NEED_GTIN_DIALOG))
             .addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
                 this.introStep.bind(this),
@@ -70,11 +70,7 @@ export class MainDialog extends ComponentDialog {
         this.dialogState = await this.stateAccessor.get(stepContext.context);
 
         let messageText:string = '';
-        if (!this.mainLuisRecognizer.isConfigured) {
-            messageText = 'NOTE: LUIS is not configured. To enable all capabilities, add `LuisAppId`, `LuisAPIKey` and `LuisAPIHostName` to the .env file.';
-            await stepContext.context.sendActivity(messageText, null, InputHints.IgnoringInput);
-            return await stepContext.next();
-        }
+       
         messageText = stepContext.options.isRestart ? stepContext.options.restartMsg : `${strings.main.welcome.introduction}`;
         if(!stepContext.options.isRestart){
             await stepContext.context.sendActivity(messageText)
@@ -100,8 +96,12 @@ export class MainDialog extends ComponentDialog {
     private async setUserDetailsStep(stepContext:WaterfallStepContext){
         const answerOfUser = stepContext.context.activity.text;
         switch (answerOfUser) {
-            case strings.general.yes: this.dialogState.newUser = true; break;
-            case strings.general.no: this.dialogState.newUser = false; break;
+            case strings.general.yes: 
+                this.dialogState.newUser = true; 
+                break;
+            case strings.general.no: 
+                this.dialogState.newUser = false; 
+                break;
         }
         this.stateAccessor.set(stepContext.context, this.dialogState);
         return await stepContext.next();
@@ -119,8 +119,10 @@ export class MainDialog extends ComponentDialog {
     private async possibilityPickedStep(stepContext: WaterfallStepContext){
         const answerOfUser = stepContext.context.activity.text;
         switch (answerOfUser){
-            case strings.main.help.possibilities.general_question: return await stepContext.beginDialog(QNA_DIALOG);
-            case strings.main.help.possibilities.need_gtin: return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.stateAccessor);
+            case strings.main.help.possibilities.general_question: 
+                return await stepContext.beginDialog(QNA_DIALOG);
+            case strings.main.help.possibilities.need_gtin: 
+                return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.stateAccessor);
             default: 
                 await stepContext.context.sendActivity('todo', 'todo', InputHints.IgnoringInput);
                 return await stepContext.next();

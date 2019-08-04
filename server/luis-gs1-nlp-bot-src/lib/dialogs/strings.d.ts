@@ -22,8 +22,10 @@ declare const _default: Readonly<{
     };
     gtin: {
         add_to_existing: string;
+        cd_dvd_vinyl_form: string;
         chose_to_add_to_prefix: (prefix: string) => string;
         for_cd: string;
+        give_revenue_please: string;
         is_revenue_correct: (revenue: string) => string;
         need_prefix: string;
         possible_answers: {
@@ -31,6 +33,7 @@ declare const _default: Readonly<{
             other: string;
         };
         prefix_determines_gtins: string;
+        special_offer: string;
     };
     main: {
         help: {

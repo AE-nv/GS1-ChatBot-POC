@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 import { InputHints, StatePropertyAccessor } from 'botbuilder';
-import { ComponentDialog, DialogContext, DialogTurnStatus } from 'botbuilder-dialogs';
+import { ComponentDialog, DialogContext, DialogTurnStatus, TextPrompt } from 'botbuilder-dialogs';
 
 import { GS1DialogState } from './userDetails';
 
@@ -13,14 +13,20 @@ import { GS1DialogState } from './userDetails';
 export class CancelAndHelpDialog extends ComponentDialog {
     protected accessor:StatePropertyAccessor<GS1DialogState>;
     protected userDetails: GS1DialogState;
-    
-    async onBeginDialog(innerDc: DialogContext, options:StatePropertyAccessor){
+    protected TEXT_PROMPT_ID:string;
+    constructor(id){
+        super(id);
+        this.TEXT_PROMPT_ID = 'TEXTPROMPT:'+id;
+        this.addDialog(new TextPrompt(this.TEXT_PROMPT_ID));
+    }
+
+    public async onBeginDialog(innerDc: DialogContext, options:StatePropertyAccessor){
         this.accessor = options;
         this.userDetails = await this.accessor.get(innerDc.context);
         return await innerDc.beginDialog(this.initialDialogId,options);
     }
 
-    async onContinueDialog(innerDc) {
+    public async onContinueDialog(innerDc) {
         const result = await this.interrupt(innerDc);
         if (result) {
             return result;
@@ -28,7 +34,7 @@ export class CancelAndHelpDialog extends ComponentDialog {
         return await super.onContinueDialog(innerDc);
     }
 
-    async interrupt(innerDc) {
+    public async interrupt(innerDc) {
         if (innerDc.context.activity.text) {
             const text = innerDc.context.activity.text.toLowerCase();
 

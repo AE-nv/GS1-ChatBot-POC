@@ -6,7 +6,6 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 import QNAMAkerClient from '../integrations/qnamaker/QNAMakerClient';
 import { QNAMakerResponse } from '../integrations/qnamaker/QNAMakerContract';
 import { CancelAndHelpDialog } from './cancelAndHelpDialog';
-import { GS1QNAContextRecognizer } from './GS1QNAContextRecognizer';
 import strings from './strings';
 
 const TEXT_PROMPT = 'textPrompt';
@@ -15,7 +14,7 @@ const CONFIRM_PROMPT = 'confirmPrompt';
 
 export class QNADialog extends CancelAndHelpDialog {
     private qnaMakerClient: QNAMAkerClient;
-    constructor(id, private qnaLuisRecognizer:GS1QNAContextRecognizer) {
+    constructor(id) {
         super(id || 'qnaDialog');
 
         this.addDialog(new TextPrompt(TEXT_PROMPT))

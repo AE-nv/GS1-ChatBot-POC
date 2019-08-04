@@ -3,6 +3,7 @@ export interface GS1DialogState extends DialogState {
     newUser?: boolean;
     loggedIn?: boolean;
     validPrefixes?: string[];
+    revenue?: string;
 }
 export declare enum GS1DialogStateMembers {
     newUser = "newUser",

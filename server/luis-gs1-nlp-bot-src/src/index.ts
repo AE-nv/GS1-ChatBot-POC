@@ -7,14 +7,12 @@ import * as path from 'path';
 import * as restify from 'restify';
 
 import { DialogAndWelcomeBot } from './bots/dialogAndWelcomeBot';
-import { FlightBookingRecognizer } from './dialogs/flightBookingRecognizer';
-import { GS1QNAContextRecognizer } from './dialogs/GS1QNAContextRecognizer';
 import { MainDialog } from './dialogs/mainDialog';
 import { QNADialog } from './dialogs/qnaDialog';
 
 // Import required bot services. // See https://aka.ms/bot-services to learn more about the different parts of a bot.
 // The bot and its main dialog.
-const BOOKING_DIALOG = 'faqDialog';
+const MAIN_DIALOG = 'mainDialog';
 const QNA_DIALOG = 'qnaDialog';
 
 // The helper-class recognizer that calls LUIS
@@ -58,12 +56,10 @@ const { MainLuisAppId, MainLuisAPIKey, MainLuisAPIHostName, QNALuisAppId, QNALui
 const mainLuisConfig: LuisApplication = { applicationId: MainLuisAppId, endpointKey: MainLuisAPIKey, endpoint: `https://${MainLuisAPIHostName}` };
 const qnaLuisConfig: LuisApplication = { applicationId: QNALuisAppId, endpointKey: QNALuisAPIKey, endpoint: `https://${QNALuisAPIHostName}` };
 
-const qnaFlowRecognizer = new GS1QNAContextRecognizer(qnaLuisConfig);
-const mainLuisRecognizer = new FlightBookingRecognizer(mainLuisConfig);
 
 // Create the main dialog.
-const qnaDialog = new QNADialog(QNA_DIALOG,qnaFlowRecognizer);
-const dialog = new MainDialog(mainLuisRecognizer, qnaFlowRecognizer, qnaDialog);
+const qnaDialog = new QNADialog(QNA_DIALOG);
+const dialog = new MainDialog(MAIN_DIALOG);
 const bot = new DialogAndWelcomeBot(conversationState, userState, dialog);
 
 // Create HTTP server

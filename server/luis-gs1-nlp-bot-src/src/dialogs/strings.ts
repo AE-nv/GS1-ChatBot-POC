@@ -22,8 +22,10 @@ export default Object.freeze({
     },
     gtin : {
         add_to_existing: 'Wenst u een GTIN toe te voegen een bestaande prefix?',
+        cd_dvd_vinyl_form: 'Volg deze [link](www.cdgtin.be) om de aanvraag van een barcode voor een CD, DVD of Viniyl plaat te vervolledigen.',
         chose_to_add_to_prefix: (prefix: string) => `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](www.linknaarprefixen.be) om het proces te voltooien.` ,
         for_cd: 'Heeft u een GTIN nodig voor CD/DVD/Vinyl in eigen beheer, of voor een ander product?',
+        give_revenue_please:'Geef uw omzet in alstublieft',
         is_revenue_correct: (revenue: string) => `Klopt volgend omzetcijfer: ${revenue}. Dit is belangrijk voor het bepalen van het tarief en zal later ook nog geverifieerd worden.`,
         need_prefix: 'In dit geval heeft een barcode prefix nodig.',
         possible_answers: {
@@ -31,6 +33,7 @@ export default Object.freeze({
             other:'Andere'
         },
         prefix_determines_gtins: 'De prefix bepaalt het maximaal aantal GTINs. Bekijk deze [link](gtins.be) voor meer info',
+        special_offer: 'We hebben een speciaal aanbod voor barcodes voor CD/DVD/Vinyl. Wilt u hier gebruik van maken?',
 
     },
     main: {

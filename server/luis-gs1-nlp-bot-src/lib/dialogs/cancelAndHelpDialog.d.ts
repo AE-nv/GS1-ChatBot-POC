@@ -8,6 +8,8 @@ import { GS1DialogState } from './userDetails';
 export declare class CancelAndHelpDialog extends ComponentDialog {
     protected accessor: StatePropertyAccessor<GS1DialogState>;
     protected userDetails: GS1DialogState;
+    protected TEXT_PROMPT_ID: string;
+    constructor(id: any);
     onBeginDialog(innerDc: DialogContext, options: StatePropertyAccessor): Promise<import("botbuilder-dialogs").DialogTurnResult<any>>;
     onContinueDialog(innerDc: any): Promise<any>;
     interrupt(innerDc: any): Promise<any>;
