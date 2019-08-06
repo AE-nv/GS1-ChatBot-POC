@@ -1,4 +1,4 @@
-import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
+import { WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
 
 import { getChoicePrompt, getTextPrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
@@ -16,7 +16,6 @@ export class GtinForCDCDDialog extends CancelAndHelpDialog{
             this.specialOfferStep.bind(this),
             this.pickNextDialogStep.bind(this)
         ]))
-        .addDialog(new TextPrompt('text'))
         .addDialog(new NeedPrefixDialog(NEED_PREFIX_DIALOG));
         this.initialDialogId = 'gtinForCDWaterfall'
     }
@@ -30,7 +29,7 @@ export class GtinForCDCDDialog extends CancelAndHelpDialog{
             case strings.general.no:
                 return await stepContext.beginDialog(NEED_PREFIX_DIALOG,this.accessor);
             case strings.general.yes:
-                return await getTextPrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.cd_dvd_vinyl_form);
+                await getTextPrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.cd_dvd_vinyl_form);
         }
         return await stepContext.endDialog();
     }

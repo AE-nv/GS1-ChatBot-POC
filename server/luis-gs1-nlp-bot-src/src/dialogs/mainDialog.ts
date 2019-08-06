@@ -120,7 +120,7 @@ export class MainDialog extends ComponentDialog {
         const answerOfUser = stepContext.context.activity.text;
         switch (answerOfUser){
             case strings.main.help.possibilities.general_question: 
-                return await stepContext.beginDialog(QNA_DIALOG);
+                return await stepContext.beginDialog(QNA_DIALOG, this.stateAccessor);
             case strings.main.help.possibilities.need_gtin: 
                 return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.stateAccessor);
             default: 

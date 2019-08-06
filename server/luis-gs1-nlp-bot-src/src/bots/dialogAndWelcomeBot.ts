@@ -10,7 +10,7 @@ import { DialogBot } from './dialogBot';
 export class DialogAndWelcomeBot extends DialogBot {
     constructor(conversationState: BotState, userState: BotState, dialog: Dialog) {
         super(conversationState, userState, dialog);
-
+        
         this.onMembersAdded(async (context, next) => {
             const membersAdded = context.activity.membersAdded;
             for (const member of membersAdded) {

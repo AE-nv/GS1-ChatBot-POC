@@ -5,7 +5,7 @@ import { AccountDialog } from '../accountDialogs/accountDialog';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
 import { GS1DialogState } from '../userDetails';
-import { PrefixChoiceDialog } from './addPrefixDialog';
+import { PrefixChoiceDialog } from './prefixChoiceDialog';
 
 const ACCOUNT_DIALOG: string = 'accountDialog';
 const PREFIX_TEXT_PROMPT: string =  'gtinExistingPrefixTextPrompt';
@@ -33,7 +33,7 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
         if (this.userDetails.newUser && this.userDetails.newUser === true){
             await stepContext.context.sendActivity(strings.main.new_user_documents);
         }
-        await stepContext.context.sendActivity(strings.account.need_to_be_logged_in);
+        // await stepContext.context.sendActivity(strings.account.need_to_be_logged_in);
         return await stepContext.next();
     }
 
@@ -51,7 +51,7 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
     private async checkValidPrefixStep(stepContext:WaterfallStepContext){
         // HAS NO VALID PREFIX --> START HELP WITH PREFIX
         if (!this.userDetails.validPrefixes || this.userDetails.validPrefixes.length === 0) {
-            return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG, this.accessor);
+             return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG, this.accessor);
         } else {
             // HAS VALID PREFIX --> ASK TO ADD OR CREATE NEW
             const introActions = CardFactory.actions([strings.general.no, ...this.userDetails.validPrefixes ]);

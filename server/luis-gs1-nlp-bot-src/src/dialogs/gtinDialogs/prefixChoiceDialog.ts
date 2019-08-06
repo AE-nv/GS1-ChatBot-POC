@@ -41,10 +41,12 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
             case strings.gtin.possible_answers.cd_dvd_vinyl:
                 return await stepContext.beginDialog(GTIN_FOR_CD_CD_DVD_VINYL, this.accessor);
         }
+        return await stepContext.next();
     }
 
     private async finalMainStep(stepContext:WaterfallStepContext){
         stepContext.endDialog();
+        // stepContext.cancelAllDialogs();
     }
 
 
