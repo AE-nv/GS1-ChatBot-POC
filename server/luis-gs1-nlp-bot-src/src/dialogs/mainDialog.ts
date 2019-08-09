@@ -11,6 +11,7 @@ import {
 } from 'botbuilder-dialogs';
 
 import { ConsoleLogTelemetryClient } from '../util/ConsoleBotTelemetryClient';
+import { GraphDialog } from './GraphDialog';
 import { NeedGtinDialog } from './gtinDialogs/needGtinDialog';
 import { QNADialog } from './qnaDialog';
 import strings from './strings';
@@ -19,6 +20,7 @@ import { GS1DialogState } from './userDetails';
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
 const TEXT_PROMPT = 'TextPrompt';
 const QNA_DIALOG = 'qnaDialog';
+const GRAPH_TEST_DIALOG = 'graphTestDialog';
 const NEED_GTIN_DIALOG='needGtinDialog';
 
 export class MainDialog extends ComponentDialog {
@@ -35,6 +37,7 @@ export class MainDialog extends ComponentDialog {
         this.addDialog(new TextPrompt(TEXT_PROMPT))
             .addDialog(new QNADialog(QNA_DIALOG))
             .addDialog(new NeedGtinDialog(NEED_GTIN_DIALOG))
+            .addDialog(new GraphDialog(GRAPH_TEST_DIALOG))
             .addDialog(new WaterfallDialog(MAIN_WATERFALL_DIALOG, [
                 this.introStep.bind(this),
                 this.newUserStep.bind(this),
@@ -123,6 +126,8 @@ export class MainDialog extends ComponentDialog {
                 return await stepContext.beginDialog(QNA_DIALOG, this.stateAccessor);
             case strings.main.help.possibilities.need_gtin: 
                 return await stepContext.beginDialog(NEED_GTIN_DIALOG, this.stateAccessor);
+            case strings.main.help.possibilities.need_lei:
+                return await stepContext.beginDialog(GRAPH_TEST_DIALOG, this.stateAccessor)
             default: 
                 await stepContext.context.sendActivity('todo', 'todo', InputHints.IgnoringInput);
                 return await stepContext.next();

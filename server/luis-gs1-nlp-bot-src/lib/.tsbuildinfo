@@ -1026,15 +1026,15 @@
         "signature": "c74ecf40e5608ed7566a489532cfb6e27dc964ff4e31a3446a6bf3a1c0aa2588"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/waterfalldialog.d.ts": {
-        "version": "de96cb30aac375098f5e5b2ffca4ce1b497029342f0119993ab81cddd55c5baa",
-        "signature": "de96cb30aac375098f5e5b2ffca4ce1b497029342f0119993ab81cddd55c5baa"
+        "version": "3389939ff17b076d3e20c720c8c1111f2133d673d2fb6014c2a805f439d8982b",
+        "signature": "3389939ff17b076d3e20c720c8c1111f2133d673d2fb6014c2a805f439d8982b"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts": {
         "version": "9e3fe6984646bdf23f74168b1020f434b12269fa8c6413718694a508fa437691",
         "signature": "9e3fe6984646bdf23f74168b1020f434b12269fa8c6413718694a508fa437691"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/consolebottelemetryclient.ts": {
-        "version": "ad744a832c78575e117cf0be97b3073ce7444d430761b9e7e7b1a0eb004738f9",
+        "version": "b69c7d6efcb614750034fdc76c382118a60e75aa7d1b60b90a89b1fd4c369e67",
         "signature": "ad5f0aea7f174294e9d588cf0142c17515d5e814f6491b9c9fd4c21ca86f868d"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/userdetails.ts": {
@@ -1042,12 +1042,20 @@
         "signature": "bc78f1ceb087ddb0a22ccc7e2e3f2fec5c6addf225b4017fa9687084e465dda8"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts": {
-        "version": "377fa7036620129f036e20ed70f0dbae4daf6c6b7131ceb26292a3ebc7e53d3e",
-        "signature": "810771b74acbef7bef53f2f7c3e478c0129fe4c42d418a1e7a19bafc86c337c3"
+        "version": "eead42d93abc7444541ce22ee3cd1435c4db0053c547405def5c00a469954742",
+        "signature": "3ea8d51b10c44daefa91ba3b8224c2bdbb88866473e80f55d1b73b65aafd2d3d"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts": {
+        "version": "23ceab4ad2a55bcff23427e478c8cc0917d673ca323695d5aa1c802d9543c6c9",
+        "signature": "2e345e66c54422830e4d94d8ef516b2c78161e756935435b06e0febe31fbd53d"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": {
+        "version": "f43024655eea7b51ba79a01589dfa68a07e2daaa9797965987f8bc1e8af357ba",
+        "signature": "57184cb1f044eaa566826a28abcfd6a7882ba656911a7d2a0655952dd1294a39"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts": {
-        "version": "baf859df496c3ddcf2db275234f65f1f66eeaa6f426c575737df2ae397507d80",
-        "signature": "9f9abe46723b19b24d0ec643654ed08f9c4469c2256d7ecd2ab14c987f88858f"
+        "version": "455385ff82faf96d60bfe95644302abc9eb968247173acd097a6a69c209f6ed3",
+        "signature": "d48d31506c6da7a1da6b6aa7837bf40460b78929bc697809f46974256d5b4ef1"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/createaccountdialog.ts": {
         "version": "64b5b6bb7feb3cbc7514284c9ce806e4a0f1e1d72e4f5435427db37917611cd1",
@@ -1061,33 +1069,9 @@
         "version": "dba2e592e0a3f0932d1bed3a3135b621b9894385d707c3d8f1068384f53d0a89",
         "signature": "002c82f2c089932e9295793188db5610b6da0538593e35150e41352cd20aeda0"
       },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": {
-        "version": "063ca6f0f43dc6a331903276f831c159d3c8bed9493b80c14b26117a56390a36",
-        "signature": "09cfaa3cc303d42be47d21310455d59de0c5c3caa601fc9d57cc1ea143e21950"
-      },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": {
-        "version": "250612c5d09df882fb6a96a0caf40c793164770e9502b735695f9774ecc3e699",
-        "signature": "9532e1ef432ca463c3a45309209fe2fccd3847e8012300624d09d39b17836a7e"
-      },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": {
-        "version": "d1ad7ca1b557467c86022e408ea896d58f483d18695f0e1dd7e43fcc3ca6042d",
-        "signature": "c10d7e216e64515dec9f6a886ad74b48f62e1b77d33081aa24128ae4889579ba"
-      },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": {
-        "version": "9f435b822ae1db0d4e3fc4b8fe4c3c5b0afffb784e3979f070b473e7be4c8ccf",
-        "signature": "d79138b1b89f2385c734abc1d606e9a081cec6552aad15a3c737167fc0a50f6d"
-      },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": {
-        "version": "80d453a54c1a1462f8159c9cea65ab22c28f10cae7208e7ed434152de4c7097f",
-        "signature": "6317d5010edf01f6bb5fd6204fee2844bdfe33a048124ae7730f9d2358aa7cb7"
-      },
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": {
-        "version": "c437f9235d18a2cfc58c02159aa976b974174c4adedd4a587f0105443b690ca1",
-        "signature": "8d85f09ca6d642430a7acf6942bb7387cf418b163a1e456f76c3883dba671c7d"
-      },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needgtindialog.ts": {
-        "version": "c32a77884a59b7ef6772245f701abed880889100132511222ea6dca128296939",
-        "signature": "64298ba4de612955aa06a5fe06b05a2a320f0777ef35f135a1a8d46e940818c7"
+        "version": "cdbcb13fa6f6432285c8bd4f0de8c4d763f0409306a6eeff2bdab8f47aea7425",
+        "signature": "6afe1ab7f88fd3a516271f832033cb4494f2648ffa66b04a629ad1e029eca975"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/axios/index.d.ts": {
         "version": "9b3812f5ae5c9c8c9daf7107e1041f4ad9d19aebd12b738a81f22a1ac1f5e371",
@@ -1106,7 +1090,7 @@
         "signature": "cbe8ab6941d32f3e12a6a8fb44f1c6df1a1a5c283702494caa819701d4f8c2f8"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/maindialog.ts": {
-        "version": "143d61ea7887eadd696891f42a4ae878f4c8e1a42b33db9a4064630d8d90f340",
+        "version": "22747d8cff97efe6f8500497313545077ec5f2702212148ef39b0c88da3758c8",
         "signature": "93c437257d1ebf92da56d3dce5678eb6323b4108bddda802719c271232374b57"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/bots/dialogbot.ts": {
@@ -1114,7 +1098,7 @@
         "signature": "ddfc416c6cb7f89048f0ae0421a8a51d3e116ef1391197ecdb872b3e1b49581a"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/bots/dialogandwelcomebot.ts": {
-        "version": "b437ef49dbf9c822e3f79af08e5188b52dcb38fe50f4de2723f73f598c73b6d9",
+        "version": "64a8344c8fa566478146157cdeb3c14f3424168a8976e375cdb60ab25962cf53",
         "signature": "c8e69a416c04cadde6d6cc7342ca3856604e990d81a7d7d4e9acaba58f35a710"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/index.ts": {
@@ -1126,12 +1110,40 @@
         "signature": "3b710fb0524a6a0d9c36d3032942ba9c9a30ed92af10bceec6ba71ec30c484eb"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/complexdialogs.ts": {
-        "version": "c25391da1b2a3e013a49e77b835228d61def63369fc2271af82cd059724097ff",
+        "version": "4f0c895374f8b7a8cf09eb0097666ca7d69c5299ab1be207bb047c178f5f0deb",
         "signature": "38299200f8e068e669e13cee70ec724405d484b86053573cb8f83aa2e8bf8ab1"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/dialoggraphs.ts": {
+        "version": "047b09c2678e3efa1c4cd7332e27e08a4f2ad544816a3b01fbaba8613d10a1b4",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/injectablewaterfalldialog.ts": {
+        "version": "1ebdb1d40df40963e969aa957d232dc0a494a0c3e3e7991a25aa92de7bee0bd0",
+        "signature": "1e76bb3ac37ccf39e660d0199289877e00c3deb320899c94636bd72cdd198a12"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": {
+        "version": "250612c5d09df882fb6a96a0caf40c793164770e9502b735695f9774ecc3e699",
+        "signature": "9532e1ef432ca463c3a45309209fe2fccd3847e8012300624d09d39b17836a7e"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": {
+        "version": "d1ad7ca1b557467c86022e408ea896d58f483d18695f0e1dd7e43fcc3ca6042d",
+        "signature": "c10d7e216e64515dec9f6a886ad74b48f62e1b77d33081aa24128ae4889579ba"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": {
+        "version": "9f435b822ae1db0d4e3fc4b8fe4c3c5b0afffb784e3979f070b473e7be4c8ccf",
+        "signature": "d79138b1b89f2385c734abc1d606e9a081cec6552aad15a3c737167fc0a50f6d"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": {
+        "version": "80d453a54c1a1462f8159c9cea65ab22c28f10cae7208e7ed434152de4c7097f",
+        "signature": "6317d5010edf01f6bb5fd6204fee2844bdfe33a048124ae7730f9d2358aa7cb7"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforotherdialog.ts": {
         "version": "39e0ebb89cff7cc145c9be0e8da7edd09784620737c38ea5ae8c24a56eced09f",
         "signature": "4aa198295d37f67300a9a16c4a774fc002376b4b7e4c690deecedccafdfa8603"
+      },
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": {
+        "version": "19974a551e370ef282596ac6efeeb9e68ca40d5dd4e2c554744e78424c64d5ff",
+        "signature": "8d85f09ca6d642430a7acf6942bb7387cf418b163a1e456f76c3883dba671c7d"
       },
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/async/index.d.ts": {
         "version": "9d8cfbf794c27d432474eb18756fc9f8e94d860c3c730297f019a4b99d66f4de",
@@ -2861,6 +2873,18 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
@@ -2891,63 +2915,15 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needgtindialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/accountdialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/userdetails.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2979,6 +2955,7 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/consolebottelemetryclient.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needgtindialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/qnadialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
@@ -3022,8 +2999,60 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/dialoggraphs.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/injectablewaterfalldialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforotherdialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -4756,8 +4785,15 @@
       ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts",
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/userdetails.ts"
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/userdetails.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder/lib/index.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts",
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts"
       ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/createaccountdialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
@@ -4766,24 +4802,6 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
       ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/accountdialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": [
-        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
-      ],
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
       ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needgtindialog.ts": [
@@ -4818,7 +4836,25 @@
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/util.d.ts",
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/injectablewaterfalldialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/botbuilder-dialogs/lib/index.d.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforotherdialog.ts": [
+        "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
+      ],
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts": [
         "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts"
       ],
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/async/index.d.ts": [
@@ -5168,15 +5204,11 @@
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/consolebottelemetryclient.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/userdetails.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/cancelandhelpdialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/strings.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/createaccountdialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/logindialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/accountdialogs/accountdialog.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/util/promptfactory.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needgtindialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/axios/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/integrations/qnamaker/qnamakercontract.ts",
@@ -5188,7 +5220,14 @@
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/index.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/typings.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/complexdialogs.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/dialoggraphs.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/injectablewaterfalldialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/enterrevenuedialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/iscorrectrevenuedialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/needprefixdialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforcddialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/gtinforotherdialog.ts",
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/async/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/connect/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/body-parser/index.d.ts",
@@ -5203,7 +5242,7 @@
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/request/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/sprintf-js/index.d.ts",
       "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/node_modules/@types/url-join/index.d.ts",
-      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/gtindialogs/prefixchoicedialog.ts"
+      "c:/users/pieter.verlinden/documents/aefactory/gs1bot/server/luis-gs1-nlp-bot-src/src/dialogs/graphdialog.ts"
     ]
   },
   "version": "3.5.1"

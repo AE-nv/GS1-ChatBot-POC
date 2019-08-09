@@ -24,7 +24,7 @@ declare const _default: Readonly<{
         add_to_existing: string;
         cd_dvd_vinyl_form: string;
         chose_to_add_to_prefix: (prefix: string) => string;
-        for_cd: string;
+        for_cd_or_other: string;
         give_revenue_please: string;
         is_revenue_correct: (revenue: string) => string;
         need_prefix: string;

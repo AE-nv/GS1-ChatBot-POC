@@ -29,7 +29,7 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         return await getChoicePrompt(
             stepContext, 
             TEXT_PROMPT,
-            strings.gtin.for_cd, 
+            strings.gtin.for_cd_or_other, 
             [strings.gtin.possible_answers.other, strings.gtin.possible_answers.cd_dvd_vinyl])
     }
 
@@ -48,8 +48,4 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         stepContext.endDialog();
         // stepContext.cancelAllDialogs();
     }
-
-
-
-
 }

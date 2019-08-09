@@ -26,7 +26,7 @@ export class ComplexDialog  {
 }
 
 export const prefixChoiceDialog: ComplexDialog = 
-    new ComplexDialog(strings.gtin.for_cd)
+    new ComplexDialog(strings.gtin.for_cd_or_other)
     .addOption(strings.gtin.possible_answers.other, 
             new ComplexDialog(strings.gtin.need_prefix)
             .addOption( undefined,

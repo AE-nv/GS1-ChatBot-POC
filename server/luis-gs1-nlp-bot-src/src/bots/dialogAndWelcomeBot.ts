@@ -19,6 +19,7 @@ export class DialogAndWelcomeBot extends DialogBot {
                         dialogStack:[], 
                         loggedIn:false,
                         newUser:true,
+                        revenue: '123456789',
                         validPrefixes:[]
                     };
                     const dialogStateAccessor = conversationState.createProperty<GS1DialogState>('GS1DialogState');
