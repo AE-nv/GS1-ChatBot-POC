@@ -32,15 +32,15 @@ export default class YesNoButtonEntry extends ChatEntry {
     @Prop() public message!: string;
     public answerGiven: boolean = false;
     @Emit('chatEntryEvent')
-    public yesClicked(): ChatEntryEvent {
+    public yesClicked() {
         this.answerGiven = true;
-        return ChatEntryEvent.YesClicked;
+        return { event: ChatEntryEvent.YesClicked, value: 'Ja' };
     }
 
     @Emit('chatEntryEvent')
-    public noClicked(): ChatEntryEvent {
+    public noClicked() {
         this.answerGiven = true;
-        return ChatEntryEvent.NoClicked;
+        return { event: ChatEntryEvent.NoClicked, value: 'Nee' };
     }
 }
 </script>

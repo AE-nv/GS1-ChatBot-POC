@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ChatWindow
+    <ChatWindowHardcoded
       class="position-fixed bot"
       :class="{'bot--active':botActive, 'bot--inactive':!botActive}"
       :active="botActive"
@@ -12,11 +12,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import ChatWindow from '@/components/ChatWindow.vue';
+import ChatWindowHardcoded from '@/components/ChatWindowHardcoded.vue';
 
 @Component({
     components: {
-        ChatWindow,
+        ChatWindowHardcoded,
     },
 })
 export default class Home extends Vue {

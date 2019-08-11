@@ -22,7 +22,7 @@ export default class ChatEntryDataFactory {
                 message: textMessage,
             },
             author: Author.User,
-            entryId: this.idCount++,
+            entryId: this.getId(textMessage),
         };
     }
 
@@ -38,7 +38,7 @@ export default class ChatEntryDataFactory {
                 message: textMessage,
             },
             author: Author.User,
-            entryId: this.idCount++,
+            entryId: this.getId(textMessage),
         };
     }
 
@@ -56,8 +56,12 @@ export default class ChatEntryDataFactory {
                 possibleAnswers,
             },
             author: Author.User,
-            entryId: this.idCount++,
+            entryId: this.getId(displayText),
         };
+    }
+
+    private getId(extra: string): number {
+        return Math.random() + extra.length;
     }
 }
 
