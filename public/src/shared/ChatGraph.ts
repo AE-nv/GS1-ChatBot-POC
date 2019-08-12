@@ -85,7 +85,7 @@ const generalQuestionDialog = new ChatNode(
         Author.Bot,
         strings.faq.pose_question,
     ),
-).setSideEffect(() => {});
+);
 
 const helpPossibilitiesDialog = new ChatNode(
     chatEntryDataFactory.getMultipleChoiceChatEntry(

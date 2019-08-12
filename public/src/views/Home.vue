@@ -13,9 +13,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import ChatWindowHardcoded from '@/components/ChatWindowHardcoded.vue';
+import ChatWindow from '../components/ChatWindow.vue';
 
 @Component({
     components: {
+        ChatWindow,
         ChatWindowHardcoded,
     },
 })

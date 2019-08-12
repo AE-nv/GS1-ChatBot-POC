@@ -26,6 +26,7 @@ declare const _default: Readonly<{
         chose_to_add_to_prefix: (prefix: string) => string;
         for_cd_or_other: string;
         give_revenue_please: string;
+        how_many_trade_units: string;
         is_revenue_correct: (revenue: string) => string;
         need_prefix: string;
         possible_answers: {
@@ -33,7 +34,9 @@ declare const _default: Readonly<{
             other: string;
         };
         prefix_determines_gtins: string;
+        recommend_these_prefixes: string;
         special_offer: string;
+        u_chose_prefix_x: (prefix: string) => string;
     };
     main: {
         help: {
@@ -47,6 +50,7 @@ declare const _default: Readonly<{
         new_user: string;
         new_user_documents: string;
         welcome: {
+            hello: string;
             introduction: string;
             possibilities: {
                 ask_question: string;

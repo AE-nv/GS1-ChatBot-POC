@@ -3,6 +3,7 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
+import { userDetails } from '../userDetails';
 
 const TEXT_PROMPT= 'loginTextPrompt';
 const WATERFALL_DIALOG = 'loginWaterfallDialog';
@@ -28,16 +29,7 @@ export class LoginDialog extends CancelAndHelpDialog {
     }
 
     private async processAnswerStep(stepContext:WaterfallStepContext){
-        const answerOfUser = stepContext.result; 
-        switch (answerOfUser) {
-            case strings.general.yes:
-                // stepContext.options.loggedIn = true;
-                await stepContext.context.sendActivity(strings.account.now_logged_in);
-                break;
-            case strings.general.no:
-                await stepContext.context.sendActivity('TODO: Flow bij niet willen inloggen');
-                break;
-        }
+        userDetails.loggedIn = true;
         return await stepContext.endDialog(stepContext.options );
     }
 }

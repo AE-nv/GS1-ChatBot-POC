@@ -1,13 +1,13 @@
-import { WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
+import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
 
 import { getChoicePrompt, getTextPrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
-import { NeedPrefixDialog } from './needPrefixDialog';
+import { RetrieveRevenueDialog } from './retrieveRevenueDialog';
 
 const TEXT_PROMPT = 'gtinForCD';
 const NEED_PREFIX_DIALOG = 'gtinForCDCDNeedPrefix';
-export class GtinForCDCDDialog extends CancelAndHelpDialog{
+export class GtinForCDDialog extends CancelAndHelpDialog{
 
     constructor(id){
         super(id || 'gtinForCDDialog');
@@ -16,20 +16,21 @@ export class GtinForCDCDDialog extends CancelAndHelpDialog{
             this.specialOfferStep.bind(this),
             this.pickNextDialogStep.bind(this)
         ]))
-        .addDialog(new NeedPrefixDialog(NEED_PREFIX_DIALOG));
+        .addDialog(new RetrieveRevenueDialog(NEED_PREFIX_DIALOG))
+        .addDialog(new TextPrompt(TEXT_PROMPT));
         this.initialDialogId = 'gtinForCDWaterfall'
     }
 
     private async specialOfferStep(stepContext:WaterfallStepContext){
-        return await getChoicePrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.special_offer, [strings.general.no, strings.general.yes]);
+        return await getChoicePrompt(stepContext, TEXT_PROMPT, strings.gtin.special_offer, [strings.general.no, strings.general.yes]);
     }
 
     private async pickNextDialogStep(stepContext:WaterfallStepContext){
         switch(stepContext.result){
             case strings.general.no:
-                return await stepContext.beginDialog(NEED_PREFIX_DIALOG,this.accessor);
+                return await stepContext.beginDialog(NEED_PREFIX_DIALOG);
             case strings.general.yes:
-                await getTextPrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.cd_dvd_vinyl_form);
+                await getTextPrompt(stepContext, TEXT_PROMPT, strings.gtin.cd_dvd_vinyl_form);
         }
         return await stepContext.endDialog();
     }

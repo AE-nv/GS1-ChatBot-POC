@@ -50,17 +50,18 @@ export default Object.freeze({
     main: {
         help: {
             possibilities: {
-                general_question: 'Ik heb een Algemene vraag',
-                need_gtin: 'Ik heb een GTIN nodig',
+                general_question: 'Vraag stellen',
+                need_gtin: 'Barcode aanmaken',
                 need_lei: 'Ik heb een LEI nodig',
             },
-            what_can_i_do: 'Waarmee kan ik u helpen?',
+            what_can_i_do: 'Waarmee kan ik je van deinst zijn?',
         },
         new_user: 'Bent u een nieuwe gebruiker?',
         new_user_documents:
             'Eerder gaf u aan dat u een nieuwe gebruiker bent. Bekijk alvast deze documenten om het aanvragen van een GTIN zo vlot mogelijk te laten verlopen. [LINK NAAR DOCS]',
         welcome: {
-            introduction: 'Welkom ik ben GS1-Bot,',
+            introduction: 'Ik ben jouw virtuele assistent bij GS1',
+            hello: 'Hallo',
             possibilities: {
                 ask_question: 'Stel een vraag',
                 create_barcode: 'Een barcode aanmaken',

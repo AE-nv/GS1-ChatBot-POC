@@ -3,13 +3,15 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 import { getChoicePrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
-import { GtinForCDCDDialog as GtinForCDCDDialog } from './gtinForCDDialog';
+import { GtinForCDDialog } from './gtinForCDDialog';
+import { RetrieveRevenueDialog } from './retrieveRevenueDialog';
 
 const TEXT_PROMPT = 'prefixChoiceTextPrompt';
 const CHOICE_PROMPT = 'prefixChoiceChoicePrompt';
 const WATERFALL_DIALOG = 'prefixChoiceWaterfallDialog';
-const GTIN_FOR_CD_OTHER = 'gtinForCDOtherWaterfallDialog';
-const GTIN_FOR_CD_CD_DVD_VINYL = 'gtinForCDCDDVDVinyl'
+// const GTIN_FOR_OTHER = 'gtinForCDOtherDialog';
+const GTIN_FOR_CD_DVD_VINYL = 'gtinForCDCDDVDVinyl'
+const RETRIEVE_REVENUE_DIALOG = 'retrieveRevenueDialog';
 export class PrefixChoiceDialog extends CancelAndHelpDialog{
     constructor(id){
         super(id || 'prefixChoiceDialog');
@@ -20,14 +22,16 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
             this.pickNextDialogStep.bind(this),
             this.finalMainStep.bind(this)
         ]))
-        .addDialog(new GtinForCDCDDialog(GTIN_FOR_CD_CD_DVD_VINYL));
+        .addDialog(new GtinForCDDialog(GTIN_FOR_CD_DVD_VINYL))
+        .addDialog(new RetrieveRevenueDialog(RETRIEVE_REVENUE_DIALOG))
+        // .addDialog(new GtinForOtherDialog(GTIN_FOR_OTHER));
         this.initialDialogId = WATERFALL_DIALOG;
     }
 
 
     private async needGtinForCDorOtherStep(stepContext:WaterfallStepContext){
         return await getChoicePrompt(
-            stepContext, 
+            stepContext,
             TEXT_PROMPT,
             strings.gtin.for_cd_or_other, 
             [strings.gtin.possible_answers.other, strings.gtin.possible_answers.cd_dvd_vinyl])
@@ -37,15 +41,15 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         const answerOfUser = stepContext.result;
         switch(answerOfUser){
             case strings.gtin.possible_answers.other:
-                return await stepContext.beginDialog(GTIN_FOR_CD_OTHER, this.accessor);
+                return await stepContext.beginDialog(RETRIEVE_REVENUE_DIALOG);
             case strings.gtin.possible_answers.cd_dvd_vinyl:
-                return await stepContext.beginDialog(GTIN_FOR_CD_CD_DVD_VINYL, this.accessor);
+                return await stepContext.beginDialog(GTIN_FOR_CD_DVD_VINYL);
         }
         return await stepContext.next();
     }
 
     private async finalMainStep(stepContext:WaterfallStepContext){
-        stepContext.endDialog();
+        return await stepContext.endDialog();
         // stepContext.cancelAllDialogs();
     }
 }

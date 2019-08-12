@@ -1,7 +1,5 @@
 import { InputHints, StatePropertyAccessor } from 'botbuilder';
-import { ComponentDialog, DialogContext, DialogTurnStatus, TextPrompt } from 'botbuilder-dialogs';
-
-import { GS1DialogState } from './userDetails';
+import { ComponentDialog, DialogContext, DialogTurnStatus } from 'botbuilder-dialogs';
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,18 +9,18 @@ import { GS1DialogState } from './userDetails';
  * BEFORE they reach the normal bot logic.
  */
 export class CancelAndHelpDialog extends ComponentDialog {
-    public userDetails: GS1DialogState;
-    public accessor:StatePropertyAccessor<GS1DialogState>;
-    protected TEXT_PROMPT_ID:string;
+    // public userDetails: GS1DialogState;
+    // public accessor:StatePropertyAccessor<GS1DialogState>;
+    // protected TEXT_PROMPT_ID:string;
     constructor(id){
         super(id);
-        this.TEXT_PROMPT_ID = 'TEXTPROMPT:'+id;
-        this.addDialog(new TextPrompt(this.TEXT_PROMPT_ID));
+        // this.TEXT_PROMPT_ID = 'TEXTPROMPT:'+id;
+        // this.addDialog(new TextPrompt(this.TEXT_PROMPT_ID));
     }
 
     public async onBeginDialog(innerDc: DialogContext, options:StatePropertyAccessor){
-        this.accessor = options;
-        this.userDetails = await this.accessor.get(innerDc.context);
+        // this.accessor = options;
+        // user = await this.accessor.get(innerDc.context);
         return await innerDc.beginDialog(this.initialDialogId,options);
     }
 
