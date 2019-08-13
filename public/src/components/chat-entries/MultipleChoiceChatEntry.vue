@@ -21,7 +21,6 @@
     </template>
   </ChatEntry>
 </template>
-
 <script lang="ts">
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import ChatEntry from '../ChatEntry.vue';

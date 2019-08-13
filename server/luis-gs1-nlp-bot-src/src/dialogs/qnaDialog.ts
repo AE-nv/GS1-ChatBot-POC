@@ -55,8 +55,8 @@ export class QNADialog extends CancelAndHelpDialog {
             return await stepContext.endDialog(); 
         }else{
             await stepContext.context.sendActivity(strings.faq.pose_differently);
-            await stepContext.endDialog();
-            return await stepContext.beginDialog(this.id);
+            // await stepContext.endDialog();
+            return await stepContext.replaceDialog(this.id, {accessor: this.accessor});
         }
     }
 

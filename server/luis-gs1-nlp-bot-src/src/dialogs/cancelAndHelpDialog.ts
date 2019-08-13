@@ -44,10 +44,13 @@ export class CancelAndHelpDialog extends ComponentDialog {
                 await innerDc.context.sendActivity(helpMessageText, helpMessageText, InputHints.ExpectingInput);
                 return { status: DialogTurnStatus.waiting };
             case 'cancel':
+            case 'stop':
+            case 'beëindigen':
+            case 'terug':
+            case 'back':
             case 'quit':
                 // const cancelMessageText = 'Cancelling...';
                 // await innerDc.context.sendActivity(cancelMessageText, cancelMessageText, InputHints.IgnoringInput);
-                console.log(this)
                 return await innerDc.cancelAllDialogs();
             }
         }

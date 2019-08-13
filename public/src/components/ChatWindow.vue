@@ -20,7 +20,7 @@
       class="d-flex-uninmportant flex-column w-100"
     >
       <div class="bot__header d-flex">
-        <div class="col-2 d-flex justify-content-center p-1">
+        <div class="col-2 d-flex justify-content-center p-2">
           <img
             class="h-100 w-auto"
             src="../assets/GS1_Corporate_logo_inverted.png"
