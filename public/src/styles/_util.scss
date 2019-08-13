@@ -4,12 +4,16 @@
 
 .fa-btn {
     // background-color: transparent;
+    color: $main-color;
     transition: color 200ms;
     &:hover{
         color: darken($accent-color,10%);
     }
     &--accent {
-        color: $accent-color;
+        color: $accent-color !important;
+    }
+    &--inverted {
+        color: $text-color;
     }
 }
 

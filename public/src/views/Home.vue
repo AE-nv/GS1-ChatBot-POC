@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ChatWindowHardcoded
+    <ChatWindow
       class="position-fixed bot"
       :class="{'bot--active':botActive, 'bot--inactive':!botActive}"
       :active="botActive"
@@ -22,7 +22,11 @@ import ChatWindow from '../components/ChatWindow.vue';
     },
 })
 export default class Home extends Vue {
-    private botActive: boolean = true;
+    private botActive: boolean = false;
+
+    public mounted() {
+        setTimeout(() => (this.botActive = true), 2000);
+    }
 }
 </script>
 <style lang="scss">

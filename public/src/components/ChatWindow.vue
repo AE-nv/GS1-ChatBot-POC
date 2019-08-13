@@ -6,7 +6,7 @@
     <!-- Inactive -->
     <div
       v-show="!active && !chatTransitioning"
-      class="d-flex-uninmportant justify-content-center"
+      class="d-flex-uninmportant justify-content-center chat-bot--inactive"
       @click="openChat()"
     >
       <img
@@ -23,7 +23,7 @@
         <div class="col-2 d-flex justify-content-center p-1">
           <img
             class="h-100 w-auto"
-            src="../assets/GS1_Corporate_logo.png"
+            src="../assets/GS1_Corporate_logo_inverted.png"
           />
         </div>
         <div class="col-8 d-flex align-items-center">
@@ -41,9 +41,8 @@
       </div>
       <div
         ref="chatContent"
-        class="bot__content px-3 flex-grow-1 py-2"
+        class="bot__content pl-4 pr-3 flex-grow-1 pb-2 pt-4"
       >
-
         <component
           v-for="entry in chatEntries"
           :is="entry.chatEntryComponent"
@@ -59,20 +58,24 @@
         />
       </div>
       <div
-        class="bot__footer d-flex align-items-center"
+        class="bot__footer p-3 d-flex align-items-center"
         :class="{'disabled':botIsThinking}"
       >
-        <b-input
+        <input
           v-model="currentInput"
           :disabled="botIsThinking"
-          @keyup.native.enter="sendMessage"
-          class="bot__footer__input h-100"
-        ></b-input>
-        <font-awesome-icon
-          @click="sendMessage"
-          class="fa-btn fa-btn--accent fa-2x mr-4 clickable"
-          icon="paper-plane"
+          @keyup.enter="sendMessage"
+          class="bot__footer__input h-100 flex-grow-1 px-2"
         />
+        <div
+          @click="sendMessage"
+          class="d-flex align-items-center h-100 justify-content-center px-4 py-3 bot__footer__send-button clickable"
+        >
+          <font-awesome-icon
+            class="fa-btn fa-btn--inverted clickable"
+            icon="paper-plane"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -102,7 +105,7 @@ import { QNAMakerResponse } from '../shared/integrations/qnamaker/QNAMakerContra
     },
 })
 export default class ChatWindow extends Vue {
-    @Prop({ default: 'GS1Bot' }) public chatWindowTitle!: string;
+    @Prop({ default: '' }) public chatWindowTitle!: string;
     @Prop() public active!: boolean;
 
     public botIsThinking: boolean = false;
@@ -190,12 +193,10 @@ export default class ChatWindow extends Vue {
 
     @Emit('open')
     public openChat() {
-        if (this.active) {
-            this.chatTransitioning = true;
-            setTimeout(() => {
-                this.chatTransitioning = false;
-            }, this.transitionDelay);
-        }
+        this.chatTransitioning = true;
+        setTimeout(() => {
+            this.chatTransitioning = false;
+        }, this.transitionDelay);
     }
 
     public isUser(author: Author): boolean {
@@ -346,13 +347,24 @@ export default class ChatWindow extends Vue {
 
 .bot__footer {
     min-height: $height * 0.125;
+    max-height: $height * 0.125;
     width: 100%;
     border-top: $divider-thickness solid $background-color-dark;
+    background-color: $input-field-background;
+}
+
+.bot__footer__send-button {
+    background-color: $main-color;
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+    font-size: 1em;
 }
 
 .bot__footer__input {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
+    border-bottom-left-radius: $radius !important;
+    border-top-left-radius: $radius !important;
 }
 </style>

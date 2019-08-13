@@ -3,7 +3,10 @@
     class="chat-entry d-flex align-items-end"
     :class="{'flex-row-reverse' : isUserSide}"
   >
-    <div class="chat-entry__avatar d-flex">
+    <div
+      v-if="!isUserSide"
+      class="chat-entry__avatar d-flex"
+    >
       <img
         class="chat-entry__avatar__bot-image"
         src="../assets/GS1_Corporate_logo.png"
