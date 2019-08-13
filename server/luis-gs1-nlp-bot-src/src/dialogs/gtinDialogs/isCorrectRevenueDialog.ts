@@ -3,7 +3,6 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 import { getChoicePrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
-import { userDetails } from '../userDetails';
 
 const ENTER_REVENUE_DIALOG = 'correctRevEnterRevDialog'
 const TEXT_PROMPT='isCorrectRevenueTextPrompt';
@@ -23,6 +22,7 @@ export class IsCorrectRevenueDialog extends CancelAndHelpDialog {
     }
 
     private async isCorrectRevStep(stepContext:WaterfallStepContext){
+        const userDetails = await this.getUserState(stepContext.context);
         return await getChoicePrompt(stepContext, TEXT_PROMPT, strings.gtin.is_revenue_correct(userDetails.revenue),[strings.general.yes, strings.general.no]);
     }
 
@@ -36,6 +36,7 @@ export class IsCorrectRevenueDialog extends CancelAndHelpDialog {
     // }
 
     private async resetIfNotCorrectAndEndStep(stepContext: WaterfallStepContext) {
+        const userDetails = await this.getUserState(stepContext.context);
         console.log(`ResetAfterNotCorrectRevStep: ${stepContext.result}`);
         if(stepContext.result === strings.general.no){
             userDetails.revenue = undefined;

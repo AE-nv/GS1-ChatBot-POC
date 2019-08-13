@@ -6,7 +6,7 @@ import strings from '../strings';
 import { RetrieveRevenueDialog } from './retrieveRevenueDialog';
 
 const TEXT_PROMPT = 'gtinForCD';
-const NEED_PREFIX_DIALOG = 'gtinForCDCDNeedPrefix';
+const RETRIEVE_REVENUE_DIALOG = 'gtinForCSRetrieveRevenue';
 export class GtinForCDDialog extends CancelAndHelpDialog{
 
     constructor(id){
@@ -16,7 +16,7 @@ export class GtinForCDDialog extends CancelAndHelpDialog{
             this.specialOfferStep.bind(this),
             this.pickNextDialogStep.bind(this)
         ]))
-        .addDialog(new RetrieveRevenueDialog(NEED_PREFIX_DIALOG))
+            .addDialog(new RetrieveRevenueDialog(RETRIEVE_REVENUE_DIALOG))
         .addDialog(new TextPrompt(TEXT_PROMPT));
         this.initialDialogId = 'gtinForCDWaterfall'
     }
@@ -28,10 +28,11 @@ export class GtinForCDDialog extends CancelAndHelpDialog{
     private async pickNextDialogStep(stepContext:WaterfallStepContext){
         switch(stepContext.result){
             case strings.general.no:
-                return await stepContext.beginDialog(NEED_PREFIX_DIALOG);
+                await getTextPrompt(stepContext,TEXT_PROMPT,strings.gtin.no_problem);
+                return await stepContext.beginDialog(RETRIEVE_REVENUE_DIALOG, { accessor: this.accessor });
             case strings.general.yes:
                 await getTextPrompt(stepContext, TEXT_PROMPT, strings.gtin.cd_dvd_vinyl_form);
         }
-        return await stepContext.endDialog();
+        return await stepContext.endDialog({meta: 'userChoseSpecialOffer'});
     }
 }

@@ -8,12 +8,9 @@ import * as restify from 'restify';
 
 import { DialogAndWelcomeBot } from './bots/dialogAndWelcomeBot';
 import { MainDialog } from './dialogs/mainDialog';
-import { QNADialog } from './dialogs/qnaDialog';
 
 // Import required bot services. // See https://aka.ms/bot-services to learn more about the different parts of a bot.
 // The bot and its main dialog.
-const MAIN_DIALOG = 'mainDialog';
-const QNA_DIALOG = 'qnaDialog';
 
 // The helper-class recognizer that calls LUIS
 // Note: Ensure you have a .env file and include LuisAppId, LuisAPIKey and LuisAPIHostName.
@@ -58,8 +55,7 @@ const qnaLuisConfig: LuisApplication = { applicationId: QNALuisAppId, endpointKe
 
 
 // Create the main dialog.
-const qnaDialog = new QNADialog(QNA_DIALOG);
-const dialog = new MainDialog(MAIN_DIALOG);
+const dialog = new MainDialog();
 const bot = new DialogAndWelcomeBot(conversationState, userState, dialog);
 
 // Create HTTP server

@@ -41,15 +41,16 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         const answerOfUser = stepContext.result;
         switch(answerOfUser){
             case strings.gtin.possible_answers.other:
-                return await stepContext.beginDialog(RETRIEVE_REVENUE_DIALOG);
+                // await getTextPrompt(stepContext,TEXT_PROMPT,strings.gtin.ask_some_questions);
+                return await stepContext.beginDialog(RETRIEVE_REVENUE_DIALOG, { accessor: this.accessor, firstTimeEnter:true });
             case strings.gtin.possible_answers.cd_dvd_vinyl:
-                return await stepContext.beginDialog(GTIN_FOR_CD_DVD_VINYL);
+                return await stepContext.beginDialog(GTIN_FOR_CD_DVD_VINYL, { accessor: this.accessor });
         }
         return await stepContext.next();
     }
 
     private async finalMainStep(stepContext:WaterfallStepContext){
-        return await stepContext.endDialog();
+        return await stepContext.endDialog(stepContext.result);
         // stepContext.cancelAllDialogs();
     }
 }

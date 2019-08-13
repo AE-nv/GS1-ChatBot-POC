@@ -3,7 +3,6 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 import { getTextPrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
-import { userDetails } from '../userDetails';
 
 const IS_CORRECT_REVENUE_DIALOG = 'enterRevIsCorrectRevDIALOG'
 const TEXT_PROMPT='enterRevTextprompt'
@@ -25,6 +24,7 @@ export class EnterRevenueDialog extends CancelAndHelpDialog{
 
 
     private async finalStep(stepContext: WaterfallStepContext) {
+        const userDetails = await this.getUserState(stepContext.context);
         console.log(stepContext.result);
         userDetails.revenue = stepContext.result;
         return await stepContext.endDialog();

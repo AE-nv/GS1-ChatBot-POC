@@ -3,9 +3,8 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 import { getChoicePrompt, getTextPrompt } from '../../util/PromptFactory';
 import { AccountDialog } from '../accountDialogs/accountDialog';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
-import { GraphDialog } from '../GraphDialog';
 import strings from '../strings';
-import { userDetails } from '../userDetails';
+import { GS1DialogState } from '../userDetails';
 import { AddToExistingPrefixDialog } from './addToExistingDialog';
 import { PrefixChoiceDialog } from './prefixChoiceDialog';
 
@@ -16,49 +15,6 @@ const ADD_TO_EXISTING_PREFIX_DIALOG = 'addToExistingPrefixDialog';
 
 export class NeedGtinDialog extends CancelAndHelpDialog {
     private readonly GTIN_WATERFALL_DIALOG = 'gtinWaterfallDialog';
-    private graphD: GraphDialog;
-
-    // private revenueKnownDialog: ConditionalDialogGraphNode = new ConditionalDialogGraphNode(
-    //     (stepContext: WaterfallStepContext) => stepContext.next(),'revenueKnown')
-    //     .setCondition((() => this.userDetails && this.userDetails.revenue).bind(this))
-    //     // .setFalseDialog(this.giveRevenueDialog)
-    //     // .setTrueDialog(this.revenueCorrectDialog)
-
-    // private setRevenueDialog: DialogGraphNode =
-    //     new AnswerDialogGraphNode(
-    //         (stepContext: WaterfallStepContext) => {
-    //             this.userDetails.revenue = stepContext.context.activity.text;
-    //             this.accessor.set(stepContext.context, this.userDetails);
-    //             return stepContext.next();
-    //         },'setRevenue').setDefault(this.revenueKnownDialog);
-
-    // private giveRevenueDialog: DialogGraphNode =
-    //     new AnswerDialogGraphNode(
-    //         getChoiceStep(this.TEXT_PROMPT_ID,strings.gtin.give_revenue_please,[])
-    //         // (stepContext: WaterfallStepContext) => getTextPrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.give_revenue_please)
-    //     ,'giveRevenue').setDefault(this.setRevenueDialog);
-
-    // private revenueCorrectDialog: DialogGraphNode =
-    //     new AnswerDialogGraphNode(
-    //         (stepContext: WaterfallStepContext) => getChoicePrompt(stepContext, this.TEXT_PROMPT_ID, strings.gtin.is_revenue_correct(stepContext.context.activity.text), [strings.general.yes, strings.general.no])
-    //     ,'revenueCorrect')
-    //         .addNext(strings.general.no, this.giveRevenueDialog)
-    //         .setDefault(this.giveRevenueDialog);
-
-
-    // private needPrefixDialog: DialogGraphNode =
-    //     new AnswerDialogGraphNode(getTextStep(this.TEXT_PROMPT_ID, strings.gtin.need_prefix), 'needPrefix')
-    //         .setDefault(this.revenueKnownDialog);
-
-
-    // private prefixChoiceGraph: DialogGraphNode =
-    //     new AnswerDialogGraphNode(
-    //         getChoiceStep(this.TEXT_PROMPT_ID, strings.gtin.for_cd_or_other, [strings.gtin.possible_answers.cd_dvd_vinyl, strings.gtin.possible_answers.other]),'prefixChoice')
-    //         .addNext(strings.gtin.possible_answers.cd_dvd_vinyl,
-    //             new AnswerDialogGraphNode(getChoiceStep(this.TEXT_PROMPT_ID, strings.gtin.special_offer, [strings.general.yes, strings.general.no]),'specialOffer')
-    //                 .addNext(strings.general.yes, new AnswerDialogGraphNode(getTextStep(this.TEXT_PROMPT_ID, strings.gtin.cd_dvd_vinyl_form)))
-    //                 .addNext(strings.general.no, this.needPrefixDialog))
-    //         .addNext(strings.gtin.possible_answers.other, this.needPrefixDialog);
 
     constructor(id){
         super(id || 'needGtinDialog');
@@ -91,6 +47,7 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
     // }
 
     private async checkIfNewUserStep(stepContext:WaterfallStepContext){
+        const userDetails: GS1DialogState = await this.getUserState(stepContext.context);
         if (userDetails.newUser && userDetails.newUser === true){
             await stepContext.context.sendActivity(strings.main.new_user_documents);
         }
@@ -99,8 +56,10 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
     }
 
     private async checkLoggedInStep(stepContext: WaterfallStepContext){
-        if(userDetails && (!userDetails.loggedIn || !userDetails.loggedIn === false)) {
-            return await stepContext.beginDialog(ACCOUNT_DIALOG);
+        const userDetails: GS1DialogState = await this.getUserState(stepContext.context);
+
+        if(userDetails && (!userDetails.loggedIn || userDetails.loggedIn !== true)) {
+            return await stepContext.beginDialog(ACCOUNT_DIALOG, { accessor: this.accessor });
         }
 
         return await stepContext.next()
@@ -108,23 +67,29 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
     }
 
     private async checkValidPrefixStep(stepContext:WaterfallStepContext){
-        userDetails.validPrefixes = ['test1','test2'];
+        const userDetails: GS1DialogState = await this.getUserState(stepContext.context);
         if (!userDetails.validPrefixes || userDetails.validPrefixes.length === 0) {
-            return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG);
+            return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG, { accessor: this.accessor });
         } else {
             // HAS VALID PREFIX --> ASK TO ADD OR CREATE NEW
-            return await stepContext.beginDialog(ADD_TO_EXISTING_PREFIX_DIALOG);
+            return await stepContext.beginDialog(ADD_TO_EXISTING_PREFIX_DIALOG, { accessor: this.accessor });
+            // return await stepContext.cancelAllDialogs();
         }
     }
 
     private async processPrefixStep(stepContext:WaterfallStepContext) {
+        // tslint:disable-next-line: no-string-literal
         const answerOfUser = stepContext.result;
+        const userDetails = await this.getUserState(stepContext.context);
         // ADD TO EXISTING PREFIX?
         console.log(answerOfUser);
         if(answerOfUser === strings.general.no){
-            return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG);
-        }else{
-            await stepContext.context.sendActivity(strings.gtin.chose_to_add_to_prefix(answerOfUser));
+            return await stepContext.beginDialog(PREFIX_CHOICE_DIALOG, { accessor: this.accessor });
+        }
+        else if (userDetails.validPrefixes && userDetails.validPrefixes.find(prefix => prefix === answerOfUser)){
+            return await stepContext.cancelAllDialogs();
+        } else if (stepContext.result && stepContext.result.meta === 'userChoseSpecialOffer') {
+            return await stepContext.cancelAllDialogs();
         }
         return await stepContext.next();
     }
@@ -144,7 +109,8 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
 
     private async processPrefixChoiceStep(stepContext:WaterfallStepContext){
         const answerOfUser = stepContext.result;
-        await getTextPrompt(stepContext,PREFIX_CHOICE_DIALOG,strings.gtin.u_chose_prefix_x(answerOfUser));
+        console.log(answerOfUser);
+        await getTextPrompt(stepContext,PREFIX_TEXT_PROMPT,strings.gtin.u_chose_prefix_x(answerOfUser));
         return await stepContext.next();
     }
 

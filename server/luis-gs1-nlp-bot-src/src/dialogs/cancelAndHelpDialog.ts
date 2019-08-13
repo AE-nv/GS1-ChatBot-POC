@@ -1,5 +1,7 @@
-import { InputHints, StatePropertyAccessor } from 'botbuilder';
+import { InputHints, StatePropertyAccessor, TurnContext } from 'botbuilder';
 import { ComponentDialog, DialogContext, DialogTurnStatus } from 'botbuilder-dialogs';
+
+import { GS1DialogState } from './userDetails';
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,18 +12,17 @@ import { ComponentDialog, DialogContext, DialogTurnStatus } from 'botbuilder-dia
  */
 export class CancelAndHelpDialog extends ComponentDialog {
     // public userDetails: GS1DialogState;
-    // public accessor:StatePropertyAccessor<GS1DialogState>;
     // protected TEXT_PROMPT_ID:string;
+    protected accessor: StatePropertyAccessor<GS1DialogState>;
     constructor(id){
         super(id);
         // this.TEXT_PROMPT_ID = 'TEXTPROMPT:'+id;
         // this.addDialog(new TextPrompt(this.TEXT_PROMPT_ID));
     }
 
-    public async onBeginDialog(innerDc: DialogContext, options:StatePropertyAccessor){
-        // this.accessor = options;
-        // user = await this.accessor.get(innerDc.context);
-        return await innerDc.beginDialog(this.initialDialogId,options);
+    public async onBeginDialog(innerDc: DialogContext, options?){
+        this.accessor = options.accessor
+        return await super.onBeginDialog(innerDc,options);
     }
 
     public async onContinueDialog(innerDc: DialogContext) {
@@ -32,7 +33,7 @@ export class CancelAndHelpDialog extends ComponentDialog {
         return await super.onContinueDialog(innerDc);
     }
 
-    public async interrupt(innerDc) {
+    public async interrupt(innerDc: DialogContext) {
         if (innerDc.context.activity.text) {
             const text = innerDc.context.activity.text.toLowerCase();
 
@@ -44,10 +45,15 @@ export class CancelAndHelpDialog extends ComponentDialog {
                 return { status: DialogTurnStatus.waiting };
             case 'cancel':
             case 'quit':
-                const cancelMessageText = 'Cancelling...';
-                await innerDc.context.sendActivity(cancelMessageText, cancelMessageText, InputHints.IgnoringInput);
+                // const cancelMessageText = 'Cancelling...';
+                // await innerDc.context.sendActivity(cancelMessageText, cancelMessageText, InputHints.IgnoringInput);
+                console.log(this)
                 return await innerDc.cancelAllDialogs();
             }
         }
+    }
+    
+    protected async getUserState(context: TurnContext): Promise<GS1DialogState> {
+        return await this.accessor && this.accessor.get(context);
     }
 }

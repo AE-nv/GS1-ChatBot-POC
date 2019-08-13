@@ -3,7 +3,6 @@ import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-di
 
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
-import { userDetails } from '../userDetails';
 import { CreateAccountDialog } from './createAccountDialog';
 import { LoginDialog } from './loginDialog';
 
@@ -28,6 +27,7 @@ export class AccountDialog extends CancelAndHelpDialog {
     }
 
     private async askLoginOrCreateStep(stepContext:WaterfallStepContext){
+        const userDetails = await this.getUserState(stepContext.context);
         //TODO
         if(!!userDetails.newUser) {
             console.log('accountDialog: asked login or create')
@@ -39,7 +39,7 @@ export class AccountDialog extends CancelAndHelpDialog {
         }else{
             console.log('accountDialog: existing user ask login')
             // THE USER IS AN EXISTING USER --> start login dialog
-            return await stepContext.beginDialog(LOGIN_DIALOG);
+            return await stepContext.beginDialog(LOGIN_DIALOG, {accessor: this.accessor});
         }
     }
 
@@ -48,9 +48,9 @@ export class AccountDialog extends CancelAndHelpDialog {
         console.log(`accountDialog: login or create step: ${answerOfUser}`);
         switch(answerOfUser){
             case strings.account.log_me_in: 
-                return await stepContext.beginDialog(LOGIN_DIALOG);
+                return await stepContext.beginDialog(LOGIN_DIALOG, { accessor: this.accessor });
             case strings.account.create_account:
-                return await stepContext.beginDialog(CREATE_ACCOUNT_DIALOG);
+                return await stepContext.beginDialog(CREATE_ACCOUNT_DIALOG, { accessor: this.accessor });
         }
         return await stepContext.endDialog(stepContext.options);
     }

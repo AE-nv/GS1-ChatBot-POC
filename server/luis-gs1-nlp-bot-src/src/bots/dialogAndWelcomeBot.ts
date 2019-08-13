@@ -15,15 +15,8 @@ export class DialogAndWelcomeBot extends DialogBot {
             const membersAdded = context.activity.membersAdded;
             for (const member of membersAdded) {
                 if (member.id !== context.activity.recipient.id) {
-                    const initializedState: GS1DialogState = {
-                        dialogStack:[], 
-                        loggedIn:false,
-                        newUser:true,
-                        revenue: '123456789',
-                        validPrefixes:[]
-                    };
-                    const dialogStateAccessor = conversationState.createProperty<GS1DialogState>('GS1DialogState');
-                    await dialogStateAccessor.set(context, initializedState);
+                    const dialogStateAccessor = conversationState.createProperty<GS1DialogState>('DialogState');
+                    
                     await (dialog as MainDialog).run(context, dialogStateAccessor);
                 }
             }

@@ -4,6 +4,7 @@ import { ActivityHandler, BotState, ConversationState, StatePropertyAccessor, Us
 import { Dialog, DialogState } from 'botbuilder-dialogs';
 
 import { MainDialog } from '../dialogs/mainDialog';
+import { GS1DialogState } from '../dialogs/userDetails';
 
 
 export class DialogBot extends ActivityHandler {
@@ -33,7 +34,7 @@ export class DialogBot extends ActivityHandler {
         this.conversationState = conversationState as ConversationState;
         this.userState = userState as UserState;
         this.dialog = dialog;
-        this.dialogState = this.conversationState.createProperty<DialogState>('DialogState');
+        this.dialogState = this.conversationState.createProperty<GS1DialogState>('DialogState');
 
         this.onMessage(async (context, next) => {
             console.log('Running dialog with Message Activity.');
@@ -49,10 +50,8 @@ export class DialogBot extends ActivityHandler {
             // Save any state changes. The load happened during the execution of the Dialog.
             await this.conversationState.saveChanges(context, false);
             await this.userState.saveChanges(context, false);
-
             // By calling next() you ensure that the next BotHandler is run.
             await next();
         });
-
     }
 }

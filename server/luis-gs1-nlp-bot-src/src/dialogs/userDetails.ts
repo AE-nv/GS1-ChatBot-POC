@@ -7,17 +7,8 @@ export interface GS1DialogState extends DialogState {
     revenue?: string;
 }
 
-export interface UserDetails{
-    newUser?: boolean;
-    loggedIn?: boolean;
-    validPrefixes?: string[];
-    revenue?: string;
-}
-
 export enum GS1DialogStateMembers {
     newUser='newUser',
     loggedIn='loggedIn',
     validPrefixes='validPrefixes'
 }
-
-export const userDetails: UserDetails = {} 
