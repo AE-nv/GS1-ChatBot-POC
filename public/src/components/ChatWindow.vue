@@ -211,6 +211,15 @@ export default class ChatWindow extends Vue {
         }, this.transitionDelay);
     }
 
+    @Watch('active')
+    public transition() {
+        if (this.active) {
+            this.openChat();
+        } else {
+            this.closeChat();
+        }
+    }
+
     public updated() {
         this.scrollDown();
     }

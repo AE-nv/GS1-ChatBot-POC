@@ -2,7 +2,10 @@
   <ChatEntry v-bind="$props">
     <template>
       <div class="d-flex flex-column">
-        <div class="mb-2">{{message}}</div>
+        <div
+          v-html="parsedMessage"
+          class="mb-2"
+        ></div>
         <div class="d-flex flex-row flex-wrap chat-bubble_possible-answer__container">
           <button
             variant="dark"
@@ -32,6 +35,21 @@ export default class MultipleChoiceChatEntry extends ChatEntry {
     public selectedAnswer: string = '';
 
     public answerGiven: boolean = false;
+    //TODO extract method
+    public get parsedMessage(): string {
+        const link: RegExpExecArray | null = /\[(.*)\]\((.*)\)/gm.exec(
+            this.message,
+        );
+
+        if (link && link !== null && link.length === 3) {
+            return this.message.replace(
+                /(\[.*\])(\(.*\))/,
+                `<a href="${link[2]}" target="_blank">${link[1]}</a>`,
+            );
+        } else {
+            return this.message;
+        }
+    }
 
     @Emit('chatEntryEvent')
     public emitAnswer(answer: string) {

@@ -10,10 +10,11 @@
       <img
         class="chat-entry__avatar__bot-image"
         src="../assets/bot-icon.png"
-      > </div>
+      >
+    </div>
     <div class="chat-entry__spacer"></div>
     <div
-      class="chat-entry__text-bubble p-2 mb-2"
+      class="chat-entry__text-bubble py-2 px-3 mb-2"
       :class="{
       'chat-entry__text-bubble--user': isUserSide,
       'chat-entry__text-bubble--bot': !isUserSide
@@ -46,8 +47,8 @@ export default class ChatEntry extends Vue {
     // width: 2rem;
     // max-height: 2rem;
     // max-width: 2rem;
-    min-width: 2rem;
-    min-height: 2rem;
+    // min-width: 2rem;
+    // min-height: 2rem;
 }
 
 .chat-entry__spacer {
