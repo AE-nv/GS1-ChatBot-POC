@@ -11,7 +11,7 @@
     >
       <img
         class="h-100 w-auto"
-        src="../assets/GS1_Corporate_logo.png"
+        src="../assets/bot-icon.png"
       >
     </div>
     <!-- Active -->

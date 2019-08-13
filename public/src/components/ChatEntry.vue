@@ -9,7 +9,7 @@
     >
       <img
         class="chat-entry__avatar__bot-image"
-        src="../assets/GS1_Corporate_logo.png"
+        src="../assets/bot-icon.png"
       > </div>
     <div class="chat-entry__spacer"></div>
     <div
@@ -55,8 +55,8 @@ export default class ChatEntry extends Vue {
 }
 
 .chat-entry__avatar__bot-image {
-    max-width: 2.5rem;
-    max-height: 2.5rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
 }
 
 .chat-entry__text-bubble {
