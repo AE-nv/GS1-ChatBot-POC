@@ -1,5 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home w-100 h-100">
+    <iframe name="gs1frame"
+            class="w-100 h-100"
+            src="https://www.gs1belu.org/nl"></iframe>
     <ChatWindow class="position-fixed bot"
                 :class="{'bot--active':botActive, 'bot--inactive':!botActive}"
                 :active="botActive"
@@ -16,7 +19,6 @@ import ChatWindow from '../components/ChatWindow.vue';
 @Component({
     components: {
         ChatWindow,
-<<<<<<< HEAD
         ChatWindowHardcoded,
     },
 })
@@ -45,17 +47,6 @@ export default class Home extends Vue {
         right: $chatbot-margin;
         bottom: $chatbot-margin;
     }
-=======
-    },
-})
-export default class Home extends Vue {}
-</script>
-<style lang="scss">
-.bot {
-    right: $chatbot-margin;
-    bottom: $chatbot-margin;
-    z-index: 10000;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 }
 </style>
 

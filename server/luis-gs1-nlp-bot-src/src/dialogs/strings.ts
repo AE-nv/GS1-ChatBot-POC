@@ -7,12 +7,12 @@ export default Object.freeze({
         need_to_be_logged_in:
             'Om een GTIN aan te maken moet u zich eerst inloggen',
         not_logged_in_yet:
-            'Volg deze [link](www.logintoaccountlink.be) om in te loggen. Laat maar weten wanneer u ingelogd bent.',
+            'Volg deze [link](https://www.gs1belu.org/nl/extranet/login) om in te loggen. Laat maar weten wanneer u ingelogd bent.',
         now_logged_in: 'U bent nu ingelogd. Welkom terug!',
         saw_new_user_create_account:
             'Om een GTIN aan te maken moet u zich eerst registreren. Wilt u nu een nieuw account aanmaken? Als u zich eerder vergist had en reeds een account hebt, selecteer dan "mij inloggen"',
         see_account_creation_page:
-            'Volg deze [link](www.createaccountlink.be) om een account aan te maken. Laat maar weten wanneer u klaar bent.',
+            'Volg deze [link](https://www.gs1belu.org/nl/extranet/register/company) om een account aan te maken. Laat maar weten wanneer u klaar bent.',
     },
     faq: {
         pose_differently:
@@ -64,7 +64,7 @@ export default Object.freeze({
             },
             what_can_i_do: 'Waarmee kan ik je van dienst zijn?',
         },
-        lei: 'Klik [hier](linknaarlei.be) om informatie over de aanvraag van een LEI te vinden.',
+        lei: 'Klik [hier](https://www.gs1belu.org/nl/lei-bestellen) om informatie over de aanvraag van een LEI te vinden.',
         new_user: 'Bent u een nieuwe gebruiker?',
         new_user_documents:
             'Eerder gaf u aan dat u een nieuwe gebruiker bent. Bekijk alvast [deze documenten](newUserDocs.be) om het aanvragen van een GTIN zo vlot mogelijk te laten verlopen.',

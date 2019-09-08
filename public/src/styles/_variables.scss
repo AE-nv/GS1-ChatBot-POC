@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 $main-color: #002C6C;
-=======
-$main-color: #32B3E8;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 $accent-color: #FC4544;
 $text-color: white;
 $background-color: white;
@@ -12,26 +8,15 @@ $disabled-color:#e9ecef;
 
 $text-size-title: 1.5rem;
 
-<<<<<<< HEAD
 $radius: 0.4rem;
 $thickness: 0rem;
 $divider-thickness: 0.05rem;
-$scale: 60;
-=======
-$radius: 0.2rem;
-$thickness: 0rem;
-$divider-thickness: 0.05rem;
-$scale: 35;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
+$scale: 40;
 
 $width: 0.75rem * $scale;
 $height: 1rem * $scale;
 
-<<<<<<< HEAD
 $sleeping-bot-size: 6rem;
-=======
-$sleeping-bot-size: 3rem;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
 
 $box-shadow: 0.05rem 0.1rem 0.5rem 0.125rem $background-color-dark;
 
@@ -42,7 +27,6 @@ $user-bubble-background-color:#002C6C;
 $user-bubble-text-color: $text-color;
 $user-bubble-border-color: $user-bubble-background-color;
 
-<<<<<<< HEAD
 $bot-bubble-background-color: #F4F4F4;
 $bot-bubble-text-color: $main-color;//#212529;
 $bot-bubble-border-color: #F4F4F4;
@@ -54,8 +38,3 @@ $input-field-background : #B3C0D3;
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins/';
 
-=======
-$bot-bubble-background-color: $background-color;
-$bot-bubble-text-color: #212529;
-$bot-bubble-border-color: rgba($bot-bubble-text-color,0.5);
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend

@@ -32,7 +32,6 @@ export default class YesNoButtonEntry extends ChatEntry {
     @Prop() public message!: string;
     public answerGiven: boolean = false;
     @Emit('chatEntryEvent')
-<<<<<<< HEAD
     public yesClicked() {
         this.answerGiven = true;
         return { event: ChatEntryEvent.YesClicked, value: 'Ja' };
@@ -42,17 +41,6 @@ export default class YesNoButtonEntry extends ChatEntry {
     public noClicked() {
         this.answerGiven = true;
         return { event: ChatEntryEvent.NoClicked, value: 'Nee' };
-=======
-    public yesClicked(): ChatEntryEvent {
-        this.answerGiven = true;
-        return ChatEntryEvent.YesClicked;
-    }
-
-    @Emit('chatEntryEvent')
-    public noClicked(): ChatEntryEvent {
-        this.answerGiven = true;
-        return ChatEntryEvent.NoClicked;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
     }
 }
 </script>

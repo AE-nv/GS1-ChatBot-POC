@@ -4,23 +4,16 @@
 
 .fa-btn {
     // background-color: transparent;
-<<<<<<< HEAD
     color: $main-color;
-=======
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
     transition: color 200ms;
     &:hover{
         color: darken($accent-color,10%);
     }
     &--accent {
-<<<<<<< HEAD
         color: $accent-color !important;
     }
     &--inverted {
         color: $text-color;
-=======
-        color: $accent-color;
->>>>>>> 220c766... GS1-6: Add ui for chat in frontend
     }
 }
 
