@@ -30,7 +30,7 @@ export default Object.freeze({
         add_to_existing: 'Wenst u een GTIN toe te voegen aan een bestaande prefix?',
         ask_some_questions: 'Ik ga je nu een aantal vragen stellen om je vervolgens een overzicht te kunnen geven van de verschillende mogelijkheden en bijhorende tarieven.',
         cd_dvd_vinyl_form:
-            'Volg deze [link](www.cdgtin.be) om de aanvraag van een barcode voor een CD, DVD of Viniyl plaat te vervolledigen.',
+            'Volg deze [link](www.cdgtin.be) om de aanvraag van een barcode voor een CD, DVD of Vinyl plaat te vervolledigen.',
         check_revenue:'Nog even controleren...',
         chose_to_add_to_prefix: (prefix: string) =>
             `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](www.linknaarprefixen.be) om het proces te voltooien.`,
@@ -50,10 +50,14 @@ export default Object.freeze({
         prefix_determines_gtins:
             'De prefix bepaalt het maximaal aantal GTINs. Bekijk deze [link](gtins.be) voor meer info',
         ready_here_we_go: 'Ready? Here we go!',
-        recommend_these_prefixes: 'Op basis van uw omzet, raden we u volgende prefixen aan:',
+        recommend_these_prefixes: (suggestedPrefixes: Array<{Prefix1:string, Aantal1:number,JoiningF1:number,YearlyF1:number}>) => 
+            `Op basis van uw situatie raad ik u een bedrijfsprefix ${suggestedPrefixes[0].Prefix1} ${suggestedPrefixes[1] ? `of ${suggestedPrefixes[1].Prefix1}`: ''} aan.
+Met een bedrijfsprefix ${suggestedPrefixes[0].Prefix1} kunt u tot ${suggestedPrefixes[0].Aantal1} verschillende handelseenheden identificeren. Hiervoor betaalt u eenmalig een toetredingsbijdrage van € ${suggestedPrefixes[0].JoiningF1} en een jaarlijkse bijdrage van € ${suggestedPrefixes[0].YearlyF1}.
+\n\n${suggestedPrefixes[1] ? `Een bedrijfsprefix ${suggestedPrefixes[1].Prefix1} laat u toe om ${suggestedPrefixes[1].Aantal1} handelseenheden te identificeren voor een eenmalige kost van € ${suggestedPrefixes[1].JoiningF1} en € ${suggestedPrefixes[1].YearlyF1} per jaar.`
+    :''}`,
         special_offer:
             'We hebben een speciaal aanbod voor barcodes voor CD/DVD/Vinyl. Wilt u hier gebruik van maken?',
-        u_chose_prefix_x: (prefix:string) => `U hebt gekozen voor prefix ${prefix}. Klik op volgende [link](www.linknaarPrefixAankoop.be) om het aankoopproces vanaf hier verder te zetten.`
+        u_chose_prefix_x: (prefix:string, link:string) => `U hebt gekozen voor prefix ${prefix}. Klik op volgende [link](${link}) om het aankoopproces vanaf hier verder te zetten.`
         },
     main: {
         help: {

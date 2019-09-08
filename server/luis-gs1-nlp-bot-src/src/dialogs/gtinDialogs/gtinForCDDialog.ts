@@ -28,7 +28,7 @@ export class GtinForCDDialog extends CancelAndHelpDialog{
     private async pickNextDialogStep(stepContext:WaterfallStepContext){
         switch(stepContext.result){
             case strings.general.no:
-                await getTextPrompt(stepContext,TEXT_PROMPT,strings.gtin.no_problem);
+                // await getTextPrompt(stepContext,TEXT_PROMPT,strings.gtin.no_problem);
                 return await stepContext.beginDialog(RETRIEVE_REVENUE_DIALOG, { accessor: this.accessor });
             case strings.general.yes:
                 await getTextPrompt(stepContext, TEXT_PROMPT, strings.gtin.cd_dvd_vinyl_form);

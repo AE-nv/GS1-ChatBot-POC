@@ -38,9 +38,14 @@ declare const _default: Readonly<{
         };
         prefix_determines_gtins: string;
         ready_here_we_go: string;
-        recommend_these_prefixes: string;
+        recommend_these_prefixes: (suggestedPrefixes: {
+            Prefix1: string;
+            Aantal1: number;
+            JoiningF1: number;
+            YearlyF1: number;
+        }[]) => string;
         special_offer: string;
-        u_chose_prefix_x: (prefix: string) => string;
+        u_chose_prefix_x: (prefix: string, link: string) => string;
     };
     main: {
         help: {

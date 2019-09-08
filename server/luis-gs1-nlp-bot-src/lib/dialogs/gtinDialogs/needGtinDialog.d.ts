@@ -11,4 +11,5 @@ export declare class NeedGtinDialog extends CancelAndHelpDialog {
     private processNrOfTradeUnitsStep;
     private processPrefixChoiceStep;
     private finalStep;
+    private calcPrefix;
 }
