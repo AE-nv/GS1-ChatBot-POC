@@ -38,6 +38,7 @@ export default Object.freeze({
             'Heeft u een GTIN nodig voor CD/DVD/Vinyl in eigen beheer, of voor een ander product?',
         give_revenue_please: 'Gelieve de omzet van uw bedrijf in te geven',
         how_many_trade_units: 'Hoeveel handelseenheden wenst u te identificeren?',
+        intro_to_cd_etc:'Het doel van een barcode is belangrijk. Zo hebben we bijvoorbeeld specifieke barcodes voor creatieve doeleinden.\n	Het is daarom belangrijk te weten of de barcode gaat gebruikt worden voor de uitgave van een CD/DVD/Vinyl in eigen beheer.',
         is_revenue_correct: (revenue: string) =>
             `Klopt volgend omzetcijfer van jouw bedrijf: ${revenue}EUR?`,
         
@@ -48,7 +49,7 @@ export default Object.freeze({
             other: 'Andere',
         },
         prefix_determines_gtins:
-            'De prefix bepaalt het maximaal aantal GTINs. Bekijk deze [link](gtins.be) voor meer info',
+            'De prefix bepaalt het maximaal aantal GTINs. Bekijk deze [link](https://www.gs1belu.org/nl/barcode-nodig-koop-eerst-een-bedrijfsprefix) voor meer info',
         ready_here_we_go: 'Ready? Here we go!',
         recommend_these_prefixes: (suggestedPrefixes: Array<{Prefix1:string, Aantal1:number,JoiningF1:number,YearlyF1:number}>) => 
             `Op basis van uw situatie raad ik u een bedrijfsprefix ${suggestedPrefixes[0].Prefix1} ${suggestedPrefixes[1] ? `of ${suggestedPrefixes[1].Prefix1}`: ''} aan.
@@ -56,7 +57,7 @@ Met een bedrijfsprefix ${suggestedPrefixes[0].Prefix1} kunt u tot ${suggestedPre
 \n\n${suggestedPrefixes[1] ? `Een bedrijfsprefix ${suggestedPrefixes[1].Prefix1} laat u toe om ${suggestedPrefixes[1].Aantal1} handelseenheden te identificeren voor een eenmalige kost van € ${suggestedPrefixes[1].JoiningF1} en € ${suggestedPrefixes[1].YearlyF1} per jaar.`
     :''}`,
         special_offer:
-            'We hebben een speciaal aanbod voor barcodes voor CD/DVD/Vinyl. Wilt u hier gebruik van maken?',
+            'Als uitgever van CDs/DVDs/Vinyl in eigen beheer kan u maximaal drie GTIN-13 nummers aanvragen. Hiervoor betaalt u eenmalig € 102 per GTIN-13. Indien u verwacht op middellange termijn meer dan drie producten te identificeren, kan de aankoop van een GS1 Company Prefix interessanter zijn: € 55 /jaar, voor tien unieke GTIN-13. Wenst u gebruik te maken van het speciale aanbod (3 GTIN-13, eenmalig € 102 per stuk)?',
         u_chose_prefix_x: (prefix:string, link:string) => `U hebt gekozen voor prefix ${prefix}. Klik op volgende [link](${link}) om het aankoopproces vanaf hier verder te zetten.`
         },
     main: {
@@ -71,8 +72,9 @@ Met een bedrijfsprefix ${suggestedPrefixes[0].Prefix1} kunt u tot ${suggestedPre
         lei: 'Klik [hier](https://www.gs1belu.org/nl/lei-bestellen) om informatie over de aanvraag van een LEI te vinden.',
         new_user: 'Bent u een nieuwe gebruiker?',
         new_user_documents:
-            'Eerder gaf u aan dat u een nieuwe gebruiker bent. Bekijk alvast [deze documenten](newUserDocs.be) om het aanvragen van een GTIN zo vlot mogelijk te laten verlopen.',
-        welcome: {
+            'Eerder gaf u aan dat u een nieuwe gebruiker bent. Bekijk alvast [deze documenten](https://www.gs1belu.org/nl/downloads/brochure/hoe-maak-ik-mijn-eerste-barcode) om het aanvragen van een GTIN zo vlot mogelijk te laten verlopen.',
+        outro:'Ik hoop dat ik je heb kunnen gidsen naar een antwoord.\nAarzel niet om mij nog meer vragen te stellen.',
+            welcome: {
             hello: 'Hallo',
             introduction: 'Ik ben jouw virtuele assistent bij GS1',
             possibilities: {

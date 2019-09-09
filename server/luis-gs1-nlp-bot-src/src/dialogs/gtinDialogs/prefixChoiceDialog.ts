@@ -1,6 +1,6 @@
 import { TextPrompt, WaterfallDialog, WaterfallStepContext } from 'botbuilder-dialogs';
 
-import { getChoicePrompt } from '../../util/PromptFactory';
+import { getChoicePrompt, getTextPrompt } from '../../util/PromptFactory';
 import { CancelAndHelpDialog } from '../cancelAndHelpDialog';
 import strings from '../strings';
 import { GtinForCDDialog } from './gtinForCDDialog';
@@ -18,6 +18,7 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         this
         .addDialog(new TextPrompt(TEXT_PROMPT))
         .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
+            this.introToGtinForCDStep.bind(this),
             this.needGtinForCDorOtherStep.bind(this),
             this.pickNextDialogStep.bind(this),
             this.finalMainStep.bind(this)
@@ -28,6 +29,10 @@ export class PrefixChoiceDialog extends CancelAndHelpDialog{
         this.initialDialogId = WATERFALL_DIALOG;
     }
 
+    private async introToGtinForCDStep(stepContext:WaterfallStepContext){
+        await getTextPrompt(stepContext,TEXT_PROMPT,strings.gtin.intro_to_cd_etc)
+        return await stepContext.next();
+    }
 
     private async needGtinForCDorOtherStep(stepContext:WaterfallStepContext){
         return await getChoicePrompt(

@@ -40,6 +40,7 @@ export class MainDialog extends ComponentDialog {
                 this.setUserDetailsStep.bind(this),
                 this.poseHelpPossibilities.bind(this),
                 this.possibilityPickedStep.bind(this),
+                this.outroStep.bind(this),
                 this.finalStep.bind(this)
             ]));
 
@@ -118,6 +119,11 @@ export class MainDialog extends ComponentDialog {
                 await stepContext.context.sendActivity('todo', 'todo', InputHints.IgnoringInput);
                 return await stepContext.next();
         }
+    }
+
+    private async outroStep(stepContext:WaterfallStepContext){
+        await getTextPrompt(stepContext,TEXT_PROMPT,strings.main.outro);
+        return await stepContext.next();
     }
 
     private async finalStep(stepContext) {

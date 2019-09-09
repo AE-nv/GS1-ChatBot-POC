@@ -29,6 +29,7 @@ declare const _default: Readonly<{
         for_cd_or_other: string;
         give_revenue_please: string;
         how_many_trade_units: string;
+        intro_to_cd_etc: string;
         is_revenue_correct: (revenue: string) => string;
         need_prefix: string;
         no_problem: string;
@@ -59,6 +60,7 @@ declare const _default: Readonly<{
         lei: string;
         new_user: string;
         new_user_documents: string;
+        outro: string;
         welcome: {
             hello: string;
             introduction: string;

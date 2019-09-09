@@ -1066,8 +1066,8 @@
         "signature": "f26d79c4cd9b912a47ea98e745ba2db2355f4bdf860fb2416fc2259a8d5621a9"
       },
       "../src/dialogs/strings.ts": {
-        "version": "b3e25ab9ed98cb8f0b1f1c9ac64163e616c9154a76a3c36971271e7b1f9426c6",
-        "signature": "73a1f3947a1303ec4e4f7ddb3d280b0a774f8f612ada509d3daf840f1d466431"
+        "version": "4e409107e6104ce2df8dce5e0951485c4725b2aae9ca099e2ab025bc629360ef",
+        "signature": "a5518a54db31bba3a6d733c7dc4b5a4748375fee0384182f8410abad2e3ab64c"
       },
       "../src/dialogs/accountdialogs/createaccountdialog.ts": {
         "version": "64b5b6bb7feb3cbc7514284c9ce806e4a0f1e1d72e4f5435427db37917611cd1",
@@ -1098,8 +1098,8 @@
         "signature": "83c6979cbe2008cbacfe8503a86a08a870d3a52d2924ef4f9844487aeee0d594"
       },
       "../src/dialogs/gtindialogs/prefixchoicedialog.ts": {
-        "version": "e2defc61bd3502b1102183f6bde115ed27ab6d9edfde0b73454f79d6cd9843af",
-        "signature": "8d85f09ca6d642430a7acf6942bb7387cf418b163a1e456f76c3883dba671c7d"
+        "version": "f833b6b7caa68cafc14ef0e85f9906f6155c9401744c87c0c8eae21539be829c",
+        "signature": "5940d68241e128434636112544a9c4fb85a6a69e094ce34e2cbfc2a417c06891"
       },
       "../src/dialogs/gtindialogs/addtoexistingdialog.ts": {
         "version": "68da389aa2af575596a23c372b35ebf9cf74ba296638542c7bd8de539ed9d963",
@@ -1126,8 +1126,8 @@
         "signature": "cbe8ab6941d32f3e12a6a8fb44f1c6df1a1a5c283702494caa819701d4f8c2f8"
       },
       "../src/dialogs/maindialog.ts": {
-        "version": "1f1f7c0e06c53166ae5be642fcc1293ad9c24b68a8db07b5b89a0a966287d86f",
-        "signature": "0c615b8b46e4e8c41243174af60710da7892da85341c760091fce6aa6d587274"
+        "version": "de02c2ec6cedd9da0061c9d87eea29a0fe9f7a21eccc2450b1b90f71fb2b0852",
+        "signature": "3883dffa9185097a67a1181cae8bd1bc996119a849e501e09d554fd842b37ebe"
       },
       "../src/bots/dialogbot.ts": {
         "version": "c53cbd87a944368c4e69b1a241e789b3b068045b33ee5aa235d790303eb5a7e5",
@@ -5098,6 +5098,7 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "../src/dialogs/maindialog.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",
@@ -5379,7 +5380,6 @@
       "../src/integrations/qnamaker/qnamakercontract.ts",
       "../src/integrations/qnamaker/qnamakerclient.ts",
       "../src/dialogs/qnadialog.ts",
-      "../src/dialogs/maindialog.ts",
       "../src/bots/dialogbot.ts",
       "../src/bots/dialogandwelcomebot.ts",
       "../src/index.ts",

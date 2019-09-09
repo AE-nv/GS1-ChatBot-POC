@@ -1,80 +1,52 @@
 <template>
-  <div
-    class="bot__frame d-flex justify-content-center"
-    :class="{'bot__frame--inactive':!active, 'bot__frame--active':active}"
-  >
+  <div class="bot__frame d-flex justify-content-center"
+       :class="{'bot__frame--inactive':!active, 'bot__frame--active':active}">
     <!-- Inactive -->
-    <div
-      v-show="!active && !chatTransitioning"
-      class="d-flex-uninmportant justify-content-center chat-bot--inactive"
-      @click="openChat()"
-    >
-      <img
-        class="h-100 w-auto"
-        src="../assets/bot-icon.png"
-      >
+    <div v-show="!active && !chatTransitioning"
+         class="d-flex-uninmportant justify-content-center chat-bot--inactive"
+         @click="openChat()">
+      <img class="h-100 w-auto"
+           src="../assets/bot-icon.png">
     </div>
     <!-- Active -->
-    <div
-      v-show="active && !chatTransitioning"
-      class="d-flex-uninmportant flex-column w-100"
-    >
+    <div v-show="active && !chatTransitioning"
+         class="d-flex-uninmportant flex-column w-100">
       <div class="bot__header d-flex">
         <div class="col-2 d-flex justify-content-center p-2">
-          <img
-            class="h-100 w-auto"
-            src="../assets/GS1_Corporate_logo_inverted.png"
-          />
+          <img class="h-100 w-auto"
+               src="../assets/GS1_Corporate_logo_inverted.png" />
         </div>
         <div class="col-8 d-flex align-items-center">
           <span class="bot__header__title">{{chatWindowTitle}}</span>
         </div>
-        <div
-          @click="closeChat()"
-          class="col-2 d-flex m-auto justify-content-center"
-        >
-          <font-awesome-icon
-            class="text-white clickable"
-            icon="times"
-          />
+        <div @click="closeChat()"
+             class="col-2 d-flex m-auto justify-content-center">
+          <font-awesome-icon class="text-white clickable"
+                             icon="times" />
         </div>
       </div>
-      <div
-        ref="chatContent"
-        class="bot__content pl-4 pr-3 flex-grow-1 pb-2 pt-4"
-      >
-        <component
-          v-for="entry in chatEntries"
-          :is="entry.chatEntryComponent"
-          :key="entry.entryId"
-          class="mb-4"
-          v-bind="entry.componentProperties"
-          @chatEntryEvent="handleChatEntryEvent"
-        />
+      <div ref="chatContent"
+           class="bot__content pl-4 pr-3 flex-grow-1 pb-2 pt-4">
+        <component v-for="entry in chatEntries"
+                   :is="entry.chatEntryComponent"
+                   :key="entry.entryId"
+                   class="mb-4"
+                   v-bind="entry.componentProperties"
+                   @chatEntryEvent="handleChatEntryEvent" />
 
-        <SyncLoader
-          class="my-4"
-          v-if="botIsThinking"
-        />
+        <SyncLoader class="my-4"
+                    v-if="botIsThinking" />
       </div>
-      <div
-        class="bot__footer p-3 d-flex align-items-center"
-        :class="{'disabled':botIsThinking}"
-      >
-        <input
-          v-model="currentInput"
-          :disabled="botIsThinking"
-          @keyup.enter="sendMessage"
-          class="bot__footer__input h-100 flex-grow-1 px-2"
-        />
-        <div
-          @click="sendMessage"
-          class="d-flex align-items-center h-100 justify-content-center px-4 py-3 bot__footer__send-button clickable"
-        >
-          <font-awesome-icon
-            class="fa-btn fa-btn--inverted clickable"
-            icon="paper-plane"
-          />
+      <div class="bot__footer p-3 d-flex align-items-center"
+           :class="{'disabled':botIsThinking}">
+        <input v-model="currentInput"
+               :disabled="botIsThinking"
+               @keyup.enter="sendMessage"
+               class="bot__footer__input h-100 flex-grow-1 px-2" />
+        <div @click="sendMessage"
+             class="d-flex align-items-center h-100 justify-content-center px-4 py-3 bot__footer__send-button clickable">
+          <font-awesome-icon class="fa-btn fa-btn--inverted clickable"
+                             icon="paper-plane" />
         </div>
       </div>
     </div>
@@ -115,6 +87,8 @@ export default class ChatWindow extends Vue {
     public chatEntries: ChatEntryData[] = [];
     public chatTransitioning: boolean = false;
     public transitionDelay: number = 300; // milliseconds;
+
+    public chatDelay: number = 750;
 
     private qnaMakerClient: QNAMAkerClient;
     private directLine: DirectLine;
@@ -226,6 +200,7 @@ export default class ChatWindow extends Vue {
 
     private async parseMessage(message: IActivity) {
         console.log(message);
+        this.botIsThinking = true;
         const msg = message as Message;
         if (msg && msg.text) {
             if (
@@ -241,6 +216,7 @@ export default class ChatWindow extends Vue {
                             action => action.value,
                         ),
                     ),
+                    this.chatDelay,
                 );
             } else {
                 await this.addMessage(
@@ -248,6 +224,7 @@ export default class ChatWindow extends Vue {
                         Author.Bot,
                         msg.text || '',
                     ),
+                    this.chatDelay,
                 );
             }
         }

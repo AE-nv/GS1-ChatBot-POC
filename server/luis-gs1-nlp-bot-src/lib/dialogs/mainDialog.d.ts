@@ -15,5 +15,6 @@ export declare class MainDialog extends ComponentDialog {
     private setUserDetailsStep;
     private poseHelpPossibilities;
     private possibilityPickedStep;
+    private outroStep;
     private finalStep;
 }
