@@ -26,9 +26,9 @@ export class QNADialog extends CancelAndHelpDialog {
 
         this.initialDialogId = WATERFALL_DIALOG;
         this.qnaMakerClient = new QNAMAkerClient(
-            '36677783-1246-4ab8-8ec5-197f0f829f5b',
-            'cbde9f34-58cf-46d5-af76-975d99df84eb',
-            'https://gs1-pocbot.azurewebsites.net',
+            'e7a37184-6fa3-4fb7-ab34-b5dec25c8b85',
+            '0692127a-c9b5-47c8-8b99-3851034e9fc2',
+            'https://qnags1.azurewebsites.net',
         );
     }
 

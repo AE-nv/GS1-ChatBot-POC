@@ -16,7 +16,7 @@ export default Object.freeze({
     },
     faq: {
         pose_differently:
-            'Dan heb ik deze vraag niet helemaal begrepen, mijn excuses ik ben nog volop aan het leren. We zullen even opnieuw beginnen en misschien kan je je vraag anders formuleren? Je kan ook altijd contact opnemen met onze support medewerkers via email:"emailadres"',
+            'Dan heb ik deze vraag niet helemaal begrepen, mijn excuses ik ben nog volop aan het leren. We zullen even opnieuw beginnen en misschien kan je je vraag anders formuleren? Je kan ook altijd contact opnemen met onze support medewerkers via email: support@gs1belu.org',
         pose_question:
             'Stel uw vraag, ik zal deze zo goed mogelijk proberen te beantwoorden.',
         thanks_for_feedback: 'Top! Bedankt voor de feedback!',
@@ -33,7 +33,7 @@ export default Object.freeze({
             'Volg deze [link](www.cdgtin.be) om de aanvraag van een barcode voor een CD, DVD of Vinyl plaat te vervolledigen.',
         check_revenue:'Nog even controleren...',
         chose_to_add_to_prefix: (prefix: string) =>
-            `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](www.linknaarprefixen.be) om het proces te voltooien.`,
+            `U koos er voor om een gtin toe te voegen aan prefix ${prefix}. Volg deze [link](HTTPS://WWW.GS1BELU.ORG/NL/EXTRANET/ACCOUNT/PRODUCTS/ORDER/PRODUCT/CF0BB86C-90CB-E811-A839-000D3AB48443) om het proces te voltooien.`,
         for_cd_or_other:
             'Heeft u een GTIN nodig voor CD/DVD/Vinyl in eigen beheer, of voor een ander product?',
         give_revenue_please: 'Gelieve de omzet van uw bedrijf in te geven',

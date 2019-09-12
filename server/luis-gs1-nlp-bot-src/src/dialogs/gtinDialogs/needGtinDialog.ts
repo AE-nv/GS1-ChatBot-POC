@@ -105,7 +105,7 @@ export class NeedGtinDialog extends CancelAndHelpDialog {
 
     private async processNrOfTradeUnitsStep(stepContext:WaterfallStepContext){
         const nrOfUnits:number = stepContext.result;
-          const userDetails = await this.getUserState(stepContext.context);
+        const userDetails = await this.getUserState(stepContext.context);
         const suggestedPrefixes = this.calcPrefix(nrOfUnits, Number.parseInt(userDetails.revenue));
         userDetails.suggestedPrefixes = suggestedPrefixes;
         console.log(suggestedPrefixes);

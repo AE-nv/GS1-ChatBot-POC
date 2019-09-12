@@ -1066,7 +1066,7 @@
         "signature": "f26d79c4cd9b912a47ea98e745ba2db2355f4bdf860fb2416fc2259a8d5621a9"
       },
       "../src/dialogs/strings.ts": {
-        "version": "4e409107e6104ce2df8dce5e0951485c4725b2aae9ca099e2ab025bc629360ef",
+        "version": "121ea25b9aca1e8df756ab9b43daa63b302d172a9a75332096226184164d0b9e",
         "signature": "a5518a54db31bba3a6d733c7dc4b5a4748375fee0384182f8410abad2e3ab64c"
       },
       "../src/dialogs/accountdialogs/createaccountdialog.ts": {
@@ -1106,7 +1106,7 @@
         "signature": "1ca8af06e2b6d657aa41428aa254615d73683fe7f3fb8eddb9ecbe014c921a23"
       },
       "../src/dialogs/gtindialogs/needgtindialog.ts": {
-        "version": "355b98318f4fe2f401f2e3fcd84204ba52b9fd0ace818f2b1ec4acc4273e1c7b",
+        "version": "fa53807d5f8a77053e3c57b49324bef95941090dd8c268901b28ea967c1807b0",
         "signature": "a806439029ac311b4b0b33cc21e9bc0b41aac666d4ab870f78749e86f0a10a85"
       },
       "../node_modules/axios/index.d.ts": {
@@ -1122,7 +1122,7 @@
         "signature": "3f5723e61966bcccb22d826b89333522960e497278d1f958e8437b60c56bb9bc"
       },
       "../src/dialogs/qnadialog.ts": {
-        "version": "a4c297fc90efb2f92429a3ca0505d4346ac152c0d9f79ab5f9b61a33843d1b7a",
+        "version": "5ead5f9ed95ecd7a5f2dd6b15d7f217a93984ba4a4c44d8173a72ddef26d5ed8",
         "signature": "cbe8ab6941d32f3e12a6a8fb44f1c6df1a1a5c283702494caa819701d4f8c2f8"
       },
       "../src/dialogs/maindialog.ts": {
@@ -5098,7 +5098,7 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "../src/dialogs/maindialog.ts",
+      "../src/dialogs/qnadialog.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
       "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",
@@ -5379,7 +5379,7 @@
       "../node_modules/axios/index.d.ts",
       "../src/integrations/qnamaker/qnamakercontract.ts",
       "../src/integrations/qnamaker/qnamakerclient.ts",
-      "../src/dialogs/qnadialog.ts",
+      "../src/dialogs/maindialog.ts",
       "../src/bots/dialogbot.ts",
       "../src/bots/dialogandwelcomebot.ts",
       "../src/index.ts",
