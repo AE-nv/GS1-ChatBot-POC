@@ -13,7 +13,7 @@
         "@fortawesome/pro-regular-svg-icons": "^5.9.0",
         "@fortawesome/pro-solid-svg-icons": "^5.9.0",
         "@fortawesome/vue-fontawesome": "^0.1.6",
-        "axios": "^0.19.0",
+        "axios": "^0.21.1",
         "bootstrap": "^4.3.1",
         "bootstrap-vue": "^2.0.0-rc.27",
         "botbuilder-cognitiveservices": "^1.2.0",
